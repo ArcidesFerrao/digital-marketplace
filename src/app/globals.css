@@ -29,11 +29,16 @@ body {
   max-width: 100%;
 }
 
+a,
+button {
+  cursor: pointer;
+}
+
 footer,
 nav {
-  border: 2px solid var(--hover);
+  border: 1px solid var(--hover);
   background-color: var(--accent);
-  border-radius: 0.4rem;
+  border-radius: 0.2rem;
 }
 
 nav,
@@ -49,15 +54,22 @@ main {
 button,
 .hero-buttons span {
   padding: 0.63rem 1.3rem;
-  border: 2px solid var(--hover);
+  border: 1px solid var(--hover);
   background-color: var(--accent);
-  border-radius: 0.4rem;
+  border-radius: 0.2rem;
+  transition: all ease-in 800ms;
 }
 a {
   font-weight: 200;
 }
 a:hover {
   text-decoration: underline;
+}
+
+button:hover,
+.hero-buttons span:hover {
+  background-color: var(--hover);
+  border-radius: 0;
 }
 
 .hero-text {
@@ -71,4 +83,36 @@ a:hover {
   /* background-color: var(--accent); */
   border-radius: 0.4rem;
   padding: 1rem 2rem;
+}
+
+.list-section {
+  background-color: var(--accent);
+  border-radius: 0.2rem;
+  border: 1px solid var(--accent);
+  transition: all ease-out 500ms;
+}
+
+.list-section:hover {
+  border-color: var(--hover);
+}
+
+.product-card button:hover,
+.product-card:hover {
+  background-color: var(--hover);
+  border-color: var(--hover);
+  border-radius: 0;
+}
+
+.product-card img {
+  border-radius: 0.2rem;
+}
+.product-card {
+  transition: all 800ms ease;
+  max-width: 240px;
+  /* min-height: 200px; */
+  background-color: var(--accent);
+  padding: 1.2rem;
+  border-radius: 0.2rem;
+  justify-content: space-between;
+  border: 1px solid var(--hover);
 }

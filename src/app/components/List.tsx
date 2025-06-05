@@ -1,0 +1,78 @@
+import Image from "next/image";
+import Link from "next/link";
+import React from "react";
+
+export const List = () => {
+  return (
+    <section
+      id="product"
+      className="list-section flex flex-col items-center px-5 py-10 gap-10"
+    >
+      <div className="flex justify-between items-center w-full px-2">
+        <h2 className="text-4xl font-medium">Explore our products...</h2>
+        <Link href="/products">
+          <p>see more {">"}</p>
+        </Link>
+      </div>
+      <div className="list-items grid grid-cols-3 justify-items-center w-full">
+        <div className="product-card flex flex-col gap-2">
+          <Image
+            src="/assets/contracts.png"
+            alt="contracts template"
+            width={200}
+            height={200}
+          />
+          <div className="flex flex-col gap-2">
+            <h3 className="text-lg font-medium">
+              Freelancer Contract + Proposal Templates
+            </h3>
+            {/* <p className="font-extralight text-sm">
+              A ready-to-use bundle to help beginner freelancers close deals
+              with confidence.
+            </p> */}
+            <h3 className="text-lg font-bold">MZN 500.00</h3>
+            <button>Buy Now</button>
+          </div>
+        </div>
+        <div className="product-card flex flex-col gap-2">
+          <Image
+            src="/assets/nextjs.png"
+            alt="nextjs template"
+            width={200}
+            height={200}
+          />
+          <div className="flex flex-col gap-2">
+            <h3 className="text-lg font-medium">
+              Why Next.js is the Future of Web Development
+            </h3>
+            {/* <p className="font-extralight text-sm">
+              A ready-to-use bundle to help beginner freelancers close deals
+              with confidence.
+            </p> */}
+            <h3 className="text-lg font-bold">MZN 300.00</h3>
+            <button>Buy Now</button>
+          </div>
+        </div>
+        <div className="product-card flex flex-col gap-2">
+          <Image
+            src="/assets/Beginner-Freelancer-2.png"
+            alt="contracts template"
+            width={200}
+            height={200}
+          />
+          <div className="flex flex-col gap-2">
+            <h3 className="text-lg font-medium">
+              How to Get Clients as a Beginner Freelancer
+            </h3>
+            {/* <p className="font-extralight text-sm">
+              A ready-to-use bundle to help beginner freelancers close deals
+              with confidence.
+            </p> */}
+            <h3 className="text-lg font-bold">MZN 600.00</h3>
+            <button>Buy Now</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
