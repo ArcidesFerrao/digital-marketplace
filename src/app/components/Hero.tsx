@@ -15,7 +15,7 @@ export const Hero = () => (
         <span>Browse Products</span>
       </a>
       <a href="#sell" className="btn btn-outline">
-        <span>Start Selling</span>
+        <span>Start Selling...</span>
       </a>
     </div>
     <div className="my-10 flex items-center w-full gap-4">
