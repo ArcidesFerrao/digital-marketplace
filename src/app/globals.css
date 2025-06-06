@@ -23,6 +23,10 @@
   }
 } */
 
+html {
+  scroll-behavior: smooth smooth;
+}
+
 body {
   font-family: var(--font-suse);
   background: var(--background);
@@ -67,6 +71,10 @@ a:hover {
   text-decoration: underline;
 }
 
+button:hover,
+.hero-buttons span:hover {
+  box-shadow: 6px 8px 0 var(--shadow);
+}
 button:hover,
 .hero-buttons span:hover {
   background-color: var(--hover);
@@ -120,4 +128,12 @@ button:hover,
   border-radius: 0.2rem;
   justify-content: space-between;
   border: 1px solid var(--hover);
+}
+
+.description-section {
+  background-color: var(--hover);
+}
+
+.description-section button:hover {
+  border-color: var(--text);
 }

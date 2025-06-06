@@ -1,11 +1,11 @@
 export const Hero = () => (
   <section id="hero" className="hero-section text-center p-10">
-    <div className="my-5 flex flex-col items-center">
-      <h2 className="text-4xl font-bold py-2">
+    <div className="my-5 flex flex-col items-center gap-5">
+      <h2 className="text-5xl font-bold py-2">
         Your Skills are Digital Products
       </h2>
-      <h2 className="text-4xl font-bold py-2">Sell in Minutes</h2>
-      <p className="my-5 hero-text ">
+      <h2 className="text-5xl font-bold ">Sell in Minutes</h2>
+      <p className="my-6 hero-text font-light ">
         Join Innovante Marketplace — a place for creators, developers and
         designers to sell their work with ease
       </p>

@@ -1,8 +1,40 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { Description } from "./Description";
+
+interface productProps {
+  // id: number;
+  title: string;
+  image: string;
+  width: number;
+  price: string;
+}
 
 export const List = () => {
+  const products = [
+    {
+      id: 1,
+      title: "Freelancer Contract + Proposal Templates",
+      image: "/assets/contracts.png",
+      width: 200,
+      price: "MZN 500.00",
+    },
+    {
+      id: 2,
+      title: "Why Next.js is the Future of Web Development",
+      image: "/assets/nextjs.png",
+      width: 200,
+      price: "MZN 300.00",
+    },
+    {
+      id: 3,
+      title: "How to Get Clients as a Beginner Freelancer",
+      image: "/assets/Beginner-Freelancer-2.png",
+      width: 200,
+      price: "MZN 600.00",
+    },
+  ];
   return (
     <section
       id="product"
@@ -14,6 +46,18 @@ export const List = () => {
           <p>see more {">"}</p>
         </Link>
       </div>
+      <div className="list-items grid grid-cols-3 justify-items-center w-full">
+        {products.map((item) => (
+          <ProductCard
+            key={item.id}
+            title={item.title}
+            image={item.image}
+            width={item.width}
+            price={item.price}
+          />
+        ))}
+      </div>
+      <Description />
       <div className="list-items grid grid-cols-3 justify-items-center w-full">
         <div className="product-card flex flex-col gap-2">
           <Image
@@ -74,5 +118,24 @@ export const List = () => {
         </div>
       </div>
     </section>
+  );
+};
+
+const ProductCard = ({ title, width, price, image }: productProps) => {
+  return (
+    <div className="product-card flex flex-col gap-2">
+      <Image
+        src={image}
+        alt="contracts template"
+        width={width}
+        height={width}
+      />
+      <div className="flex flex-col gap-2">
+        <h3 className="text-lg font-medium">{title}</h3>
+
+        <h3 className="text-lg font-bold">{price}</h3>
+        <button>Buy Now</button>
+      </div>
+    </div>
   );
 };
