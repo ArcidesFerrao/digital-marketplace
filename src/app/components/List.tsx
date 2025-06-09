@@ -121,7 +121,7 @@ export const List = () => {
   );
 };
 
-const ProductCard = ({ title, width, price, image }: productProps) => {
+export const ProductCard = ({ title, width, price, image }: productProps) => {
   return (
     <div className="product-card flex flex-col gap-2">
       <Image
