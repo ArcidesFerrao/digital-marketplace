@@ -14,10 +14,10 @@ export const Footer = () => (
         <Link href="mailto:cidesferrao@gmail.com">
           <span className="mage--email"></span>
         </Link>
-        <Link href="mailto:cidesferrao@gmail.com">
+        <Link href="#">
           <span className="mage--whatsapp"></span>
         </Link>
-        <Link href="mailto:cidesferrao@gmail.com">
+        <Link href="#">
           <span className="jam--github"></span>
         </Link>
       </div>

@@ -37,7 +37,7 @@ export const List = () => {
   ];
   return (
     <section
-      id="product"
+      id="products"
       className="list-section flex flex-col items-center px-5 py-10 gap-10"
     >
       <div className="flex justify-between items-center w-full px-2">
