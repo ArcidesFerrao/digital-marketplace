@@ -4,9 +4,9 @@ export const Header = () => (
   <nav className="w-full flex space-x-6 justify-between p-4 ">
     <Link href="/#hero">Home</Link>
     <div className="flex gap-6">
-      <Link href="/#services">Sell</Link>
-      <Link href="/#projects">Login</Link>
-      <Link href="/#contact">Join Free</Link>
+      <Link href="/services">Sell</Link>
+      <Link href="/login">Login</Link>
+      <Link href="/signup">Join Free</Link>
     </div>
   </nav>
 );

@@ -66,6 +66,7 @@ main {
   min-height: 60vh;
 }
 
+input,
 button,
 .hero-buttons span {
   padding: 0.63rem 1.3rem;
@@ -73,6 +74,10 @@ button,
   background-color: var(--accent);
   border-radius: 0.2rem;
   transition: all ease-in 800ms;
+}
+input:focus {
+  background-color: var(--foreground);
+  color: var(--hover);
 }
 a {
   font-weight: 200;
@@ -146,4 +151,27 @@ button:hover,
 
 .description-section button:hover {
   border-color: var(--text);
+}
+
+.login-section:hover {
+  background-color: var(--hover);
+  box-shadow: 6px 8px 0 var(--shadow);
+}
+.login-section {
+  background-color: var(--accent);
+  border: 1px solid var(--hover);
+
+  /* background-color: var(--hover); */
+  width: fit-content;
+  min-height: 50vh;
+  min-width: 340px;
+  transition: all ease-in 1s;
+}
+
+.login-section button:hover {
+  background-color: var(--foreground);
+  color: var(--background);
+}
+.login-section button {
+  color: var(--text);
 }
