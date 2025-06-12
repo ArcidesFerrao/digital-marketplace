@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 
 export const Description = () => {
@@ -22,10 +23,20 @@ export const Description = () => {
         </ul>
       </div>
       <div className="call-action flex flex-col  gap-5">
-        <div>
-          <h3 className="text-3xl">&quot;Ready to sell </h3>
-          <h3 className="text-3xl">your first product&quot;</h3>
+        <div className="flex gap-3">
+          <Image
+            alt="Innovante's MarketPlace"
+            src="/assets/logo-accent.png"
+            width={30}
+            height={5}
+          />
+          <h2 className="text-xl font-bold">
+            Innovante&apos;s Digital Marketplace
+          </h2>
         </div>
+        <h3 className="text-2xl font-light">
+          &quot;Ready to sell your first product?&quot;
+        </h3>
         <button className="w-fit">Join Free</button>
       </div>
     </section>

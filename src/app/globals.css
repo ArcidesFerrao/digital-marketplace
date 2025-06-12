@@ -179,3 +179,7 @@ button:hover,
 .login-section button {
   color: var(--text);
 }
+
+.reason {
+  max-width: 240px;
+}
