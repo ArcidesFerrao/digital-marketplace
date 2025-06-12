@@ -66,10 +66,11 @@ main {
   min-height: 60vh;
 }
 
+textarea,
 input,
 button,
 .hero-buttons span {
-  padding: 0.63rem 1.3rem;
+  padding: 0.63rem 1rem;
   border: 1px solid var(--hover);
   background-color: var(--accent);
   border-radius: 0.2rem;
@@ -160,6 +161,7 @@ button:hover,
   box-shadow: 6px 8px 0 var(--shadow);
 }
 
+form,
 .signup-section,
 .login-section {
   background-color: var(--accent);

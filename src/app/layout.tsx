@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { SUSE } from "next/font/google";
 import "./globals.css";
 import "./icons.css";
-import { Header } from "./components/Header";
-import { Footer } from "./components/Footer";
+import { Header } from "../components/Header";
+import { Footer } from "../components/Footer";
 
 const suseSans = SUSE({
   variable: "--font-suse",

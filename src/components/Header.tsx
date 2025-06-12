@@ -7,7 +7,7 @@ export const Header = () => (
       <Image src="/assets/logo.png" width={40} height={38} alt="Home" />
     </Link>
     <div className="flex gap-6 items-center">
-      <Link href="/services">Sell</Link>
+      <Link href="/product/new">Sell</Link>
       <Link href="/login">Login</Link>
       <Link href="/signup">Join Free</Link>
     </div>
