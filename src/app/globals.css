@@ -73,7 +73,7 @@ button,
   border: 1px solid var(--hover);
   background-color: var(--accent);
   border-radius: 0.2rem;
-  transition: all ease-in 800ms;
+  transition: all ease-in 400ms;
 }
 input:focus {
   background-color: var(--foreground);
@@ -91,13 +91,13 @@ p {
 }
 
 button:hover,
-.hero-buttons span:hover {
-  box-shadow: 6px 8px 0 var(--shadow);
-}
-button:hover,
-.hero-buttons span:hover {
+.hero-buttons span:hover,
+.product-card button:hover,
+.login-section button:hover {
   background-color: var(--hover);
   border-radius: 0;
+  box-shadow: 6px 8px 0 var(--shadow);
+  border-color: var(--text);
 }
 
 .hero-text {
@@ -117,20 +117,17 @@ button:hover,
   background-color: var(--accent);
   border-radius: 0.2rem;
   border: 1px solid var(--accent);
-  transition: all ease-out 500ms;
+  transition: all ease-out 300ms;
 }
 
 .list-section:hover {
   border-color: var(--hover);
 }
 
-.product-card button:hover,
 .product-card:hover {
   background-color: var(--hover);
   border-color: var(--hover);
   border-radius: 0;
-}
-.product-card:hover {
   box-shadow: 6px 8px 0 var(--shadow);
   transform: translateY(-0.2rem);
 }
@@ -139,7 +136,7 @@ button:hover,
   border-radius: 0.2rem;
 }
 .product-card {
-  transition: all 800ms ease;
+  transition: all 400ms ease;
   max-width: 240px;
   /* min-height: 200px; */
   background-color: var(--accent);
@@ -157,10 +154,13 @@ button:hover,
   border-color: var(--text);
 }
 
+.signup-section:hover,
 .login-section:hover {
   background-color: var(--hover);
   box-shadow: 6px 8px 0 var(--shadow);
 }
+
+.signup-section,
 .login-section {
   background-color: var(--accent);
   border: 1px solid var(--hover);
@@ -169,13 +169,13 @@ button:hover,
   width: fit-content;
   min-height: 50vh;
   min-width: 340px;
-  transition: all ease-in 1s;
+  transition: all ease-in 500ms;
 }
-
+/* 
 .login-section button:hover {
   background-color: var(--foreground);
   color: var(--background);
-}
+} */
 .login-section button {
   color: var(--text);
 }

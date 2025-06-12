@@ -27,12 +27,17 @@ export const Description = () => {
           <Image
             alt="Innovante's MarketPlace"
             src="/assets/logo-accent.png"
-            width={30}
+            width={50}
             height={5}
           />
-          <h2 className="text-xl font-bold">
-            Innovante&apos;s Digital Marketplace
-          </h2>
+          <div>
+            <h2 className="text-xl font-bold">
+              Innovante&apos;s Digital Marketplace
+            </h2>
+            <p className="text-sm">
+              Your hub for digital tools and freelance success
+            </p>
+          </div>
         </div>
         <h3 className="text-2xl font-light">
           &quot;Ready to sell your first product?&quot;
