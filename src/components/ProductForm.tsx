@@ -11,14 +11,26 @@ export const ProductForm = () => {
       </section>
       <section className="flex flex-col gap-5">
         <input type="text" name="name" id="name" placeholder="Product Name" />
-        <div className="flex">
+        <div className="flex gap-2">
           <label htmlFor="number">Price:</label>
           <input type="number" name="price" id="price" />
         </div>
-        <div className="flex">
-          <label htmlFor="number">Price:</label>
-          <input type="number" name="price" id="price" />
-        </div>
+        <fieldset className="flex flex-col">
+          <legend>Category:</legend>
+          <span>
+            <input type="radio" name="category" value="ebook" /> E-book
+          </span>
+          <span>
+            <input type="radio" name="category" value="template" /> Template
+          </span>
+          <span>
+            <input type="radio" name="category" value="pack" /> Music Pack
+          </span>
+          <span>
+            <input type="radio" name="category" value="stock" /> Stock
+            Photography
+          </span>
+        </fieldset>
 
         <textarea name="detail" id="detail" />
       </section>
