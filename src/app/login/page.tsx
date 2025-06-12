@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 export default function LoginPage() {
@@ -13,7 +14,15 @@ export default function LoginPage() {
           placeholder="Password"
         />
       </section>
-      <button type="submit">Submit</button>
+      <section className="flex flex-col items-center gap-2">
+        <button type="submit" className="w-full">
+          Submit
+        </button>
+        <div className="flex gap-1">
+          <p>I don't have an account yet. </p>
+          <Link href="/signup">Sign Up</Link>
+        </div>
+      </section>
     </main>
   );
 }

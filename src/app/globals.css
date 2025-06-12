@@ -86,6 +86,10 @@ a:hover {
   text-decoration: underline;
 }
 
+p {
+  font-weight: 300;
+}
+
 button:hover,
 .hero-buttons span:hover {
   box-shadow: 6px 8px 0 var(--shadow);
