@@ -34,6 +34,19 @@ body {
   max-width: 100%;
 }
 
+fieldset {
+  padding: 1rem;
+  border: 4px;
+}
+legend {
+  padding: 0.4rem;
+}
+
+legend,
+fieldset {
+  border: 1px solid var(--hover);
+}
+
 a,
 button {
   cursor: pointer;
@@ -66,6 +79,12 @@ main {
   min-height: 60vh;
 }
 
+input[type="number"] {
+  max-width: 80px;
+  padding: 0.4rem;
+  text-align: end;
+}
+
 textarea,
 input,
 button,
@@ -80,6 +99,15 @@ input:focus {
   background-color: var(--foreground);
   color: var(--hover);
 }
+
+form span {
+  background-color: var(--accent);
+  width: fit-content;
+  padding: 0.4rem;
+  border: 1px solid var(--hover);
+  border-radius: 0.2rem;
+}
+
 a {
   font-weight: 200;
 }
