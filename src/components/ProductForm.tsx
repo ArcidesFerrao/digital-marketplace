@@ -15,44 +15,45 @@ export const ProductForm = () => {
           <label htmlFor="number">Price:</label>
           <input type="number" name="price" id="price" />
         </div>
-        <fieldset className="flex">
+        <fieldset className="flex gap-2">
           <legend>Category</legend>
-          <span>
+          <label className="radio">
             <input
               type="radio"
               name="category"
               value="ebook"
-              className="sr-only"
-            />{" "}
-            E-book
-          </span>
-          <span>
+              // defaultChecked
+              // className="sr-only"
+            />
+            <span className="category-span">E-book</span>
+          </label>
+          <label className="radio">
             <input
               type="radio"
               name="category"
               value="template"
-              className="sr-only"
-            />{" "}
-            Template
-          </span>
-          <span>
+              // className="sr-only"
+            />
+            <span className="category-span">Template</span>
+          </label>
+          <label className="radio">
             <input
               type="radio"
               name="category"
               value="pack"
-              className="sr-only"
-            />{" "}
-            Music Pack
-          </span>
-          <span>
+              // className="sr-only"
+            />
+            <span className="category-span">Music Pack</span>
+          </label>
+          <label className="radio">
             <input
               type="radio"
               name="category"
               value="stock"
-              className="sr-only"
-            />{" "}
-            Stock Photography
-          </span>
+              // className="sr-only"
+            />
+            <span className="category-span">Stock Photography</span>
+          </label>
         </fieldset>
 
         <textarea
@@ -60,6 +61,15 @@ export const ProductForm = () => {
           id="detail"
           placeholder="About the product..."
         />
+        <div className="flex flex-col">
+          <input
+            type="url"
+            name="fileUrl"
+            id="fileUrl"
+            placeholder="File/Folder Url"
+          />
+          <p>Product will be approved after the Url is checked.</p>
+        </div>
       </section>
       <button>Submit</button>
     </form>

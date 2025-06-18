@@ -37,6 +37,7 @@ body {
 fieldset {
   padding: 1rem;
   border: 4px;
+  flex-wrap: wrap;
 }
 legend {
   padding: 0.4rem;
@@ -85,6 +86,9 @@ input[type="number"] {
   text-align: end;
 }
 
+textarea {
+  min-height: 8rem;
+}
 textarea,
 input,
 button,
@@ -99,13 +103,25 @@ input:focus {
   background-color: var(--foreground);
   color: var(--hover);
 }
-
-form span {
+input[type="radio"] {
+  display: none;
+}
+.radio .category-span {
   background-color: var(--accent);
   width: fit-content;
-  padding: 0.4rem;
+  padding: 0.4rem 1rem;
   border: 1px solid var(--hover);
   border-radius: 0.2rem;
+  cursor: pointer;
+}
+
+.radio .category-span:hover {
+  background-color: var(--hover);
+}
+.radio input[type="radio"]:checked + .category-span {
+  background-color: var(--hover);
+  border-color: var(--text);
+  border-radius: 0;
 }
 
 a {
