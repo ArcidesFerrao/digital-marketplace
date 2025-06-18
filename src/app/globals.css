@@ -263,3 +263,15 @@ form,
   background-color: var(--accent);
   border-radius: 0.2rem;
 }
+
+.about-page img {
+  border-radius: 4rem;
+  opacity: 60%;
+}
+
+.about-mission {
+  border: solid 1px var(--hover);
+  padding: 2rem;
+  background-color: var(--accent);
+  border-radius: 0.2rem;
+}

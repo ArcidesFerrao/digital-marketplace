@@ -47,16 +47,28 @@ export default function AboutPage() {
         </div>
         <div className="about-reason flex gap-8">
           <div className="flex flex-col gap-5">
-            <h2>Why choose us?</h2>
+            <h2 className="text-2xl font-bold">Why choose us?</h2>
             <ul className="flex flex-col gap-2">
-              <li>10% fee, no subscriptions</li>
-              <li>Designed for emerging digital economies</li>
-              <li>Built with Next.js for top-tier performance</li>
-              <li>Fast, safe and mobile-friendly</li>
+              <li className="flex items-center gap-2">
+                <span className="ph--check-fat"></span>
+                <p>10% fee, no subscriptions</p>
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="ph--check-fat"></span>
+                <p>Designed for emerging digital economies</p>
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="ph--check-fat"></span>
+                <p>Built with Next.js for top-tier performance</p>
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="ph--check-fat"></span>
+                <p>Fast, safe and mobile-friendly</p>
+              </li>
             </ul>
           </div>
           <div className="flex flex-col gap-5 max-w-sm ">
-            <h2>Join our Community</h2>
+            <h2 className="text-2xl font-bold">Join our Community</h2>
             <p>
               Whether you&apos;re looking to share your creations with the world
               or discover the next digital innovation, we invite you to join
@@ -69,8 +81,8 @@ export default function AboutPage() {
           </div>
         </div>
         <div className="flex flex-col gap-5">
-          <h2>Our Story</h2>
-          <div className="flex gap-5 ">
+          <h2 className="text-2xl font-bold">Our Story</h2>
+          <div className="flex gap-10 ">
             <Image
               src="/assets/profile.png"
               alt="arcides-ferrao"
@@ -78,32 +90,39 @@ export default function AboutPage() {
               height={240}
               className="border-8 rounded-xl border-white/90 hover:rotate-3"
             />
-            <p className="max-w-sm">
-              Born with a simple idea: to change how people buy and sell digital
-              things like music, art or designs. We saw people needed a safe,
-              clear and easy-to-use platform for both creators and buyers. Since
-              day one, we&apos;ve focused on two things: building a strong
-              community and constantly improving our platform to keep up with
-              the digital world&apos;s changes.
-            </p>
+            <div className="flex flex-col justify-around">
+              <p className="max-w-sm">
+                Born with a simple idea: to change how people buy and sell
+                digital things like music, art or designs. We saw people needed
+                a safe, clear and easy-to-use platform for both creators and
+                buyers.
+              </p>
+              <p>
+                Since day one, we&apos;ve focused on two things: building a
+                strong community and constantly improving our platform to keep
+                up with the digital world&apos;s changes.
+              </p>
+            </div>
           </div>
         </div>
         <div className="flex flex-col items-center gap-5">
-          <h2>Our mission</h2>
-          <div className="flex gap-5">
-            <div className="flex flex-col items-center p-5 gap-5">
-              <h3>For Creators</h3>
-              <p>
-                Give you a fair and easy platform to show your work and earn
-                money from it
-              </p>
+          <h2 className="text-2xl font-bold">Our mission</h2>
+          <div className="flex gap-10">
+            <div className="about-mission flex flex-col items-center gap-5">
+              <h3 className="text-xl font-bold">For Creators</h3>
+              <div className="text-center">
+                <p>Give you a fair and easy platform</p>
+                <p>to show your work and earn</p>
+                <p>money from it</p>
+              </div>
             </div>
-            <div className="flex flex-col items-center p-5 gap-5">
-              <h3>For Buyers</h3>
-              <p>
-                Offer you a trusted place to find many different high-quality
-                digital products
-              </p>
+            <div className="about-mission flex flex-col items-center  gap-5">
+              <h3 className="text-xl font-bold">For Buyers</h3>
+              <div className="text-center">
+                <p>Offer you a trusted place to</p>
+                <p>find many different high-quality</p>
+                <p>digital products</p>
+              </div>
             </div>
           </div>
         </div>
