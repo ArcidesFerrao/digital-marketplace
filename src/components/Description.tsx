@@ -1,13 +1,16 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 export const Description = () => {
   return (
     <section className="description-section flex flex-row-reverse items-center justify-around px-10 py-10 w-full">
-      <div className="reason ">
-        <h2 className="text-2xl font-bold">Let us help you</h2>
-        <h2 className="text-2xl font-bold">sell your products...</h2>
-        <ul className=" py-5">
+      <div className="reason flex flex-col gap-4">
+        <div>
+          <h2 className="text-2xl font-bold">Let us help you</h2>
+          <h2 className="text-2xl font-bold">sell your products...</h2>
+        </div>
+        <ul className="">
           <li className="flex items-center gap-4 py-2">
             <span className="wpf--renew-subscription"></span>No subscriptions,
             just 10% per sale
@@ -42,7 +45,9 @@ export const Description = () => {
         <h3 className="text-2xl font-light">
           &quot;Ready to sell your first product?&quot;
         </h3>
-        <button className="w-fit">Join Free</button>
+        <Link href="/signup" className="w-fit">
+          Join Free
+        </Link>
       </div>
     </section>
   );

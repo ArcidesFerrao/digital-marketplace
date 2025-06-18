@@ -92,6 +92,7 @@ textarea {
 textarea,
 input,
 button,
+.call-action a,
 .hero-buttons span {
   padding: 0.63rem 1rem;
   border: 1px solid var(--hover);
@@ -136,6 +137,7 @@ p {
 }
 
 button:hover,
+.call-action a:hover,
 .hero-buttons span:hover,
 .product-card button:hover,
 .login-section button:hover {
@@ -192,7 +194,8 @@ button:hover,
 }
 
 .description-section {
-  background-color: var(--hover);
+  background: url("/assets/constellations_feat.png") center no-repeat;
+  /* background-color: var(--hover); */
 }
 
 .description-section button:hover {

@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export const Hero = () => (
   <section id="hero" className="hero-section text-center p-10">
     <div className="my-5 flex flex-col items-center gap-5">
@@ -11,12 +13,12 @@ export const Hero = () => (
       </p>
     </div>
     <div className="hero-buttons flex gap-5 justify-center py-5">
-      <a href="#products" className="btn">
+      <Link href="/products" className="btn">
         <span>Browse Products</span>
-      </a>
-      <a href="#sell" className="btn btn-outline">
+      </Link>
+      <Link href="/product/new" className="btn btn-outline">
         <span>Start Selling...</span>
-      </a>
+      </Link>
     </div>
     <div className="my-10 flex items-center w-full gap-4">
       <div className="step-card flex flex-col justify-between items-center">
