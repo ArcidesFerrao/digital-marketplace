@@ -250,3 +250,9 @@ form,
 .reason {
   max-width: 240px;
 }
+
+.about-page {
+  border: var(--hover) solid 1px;
+  border-radius: 0.2rem;
+  background-color: var(--accent);
+}

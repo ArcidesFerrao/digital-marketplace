@@ -5,7 +5,7 @@ export const Footer = () => (
   <section className="w-full">
     <footer className="w-full flex items-center gap-10 justify-between p-8 my-10">
       <div className="m-0 flex flex-col gap-2">
-        <Link href="/#services">About</Link>
+        <Link href="/about">About</Link>
         <Link href="/contact">Contact</Link>
         <Link href="/#contact">Help</Link>
         <Link href="/#contact">Terms&Conditions</Link>
