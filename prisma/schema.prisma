@@ -43,3 +43,15 @@ model Transaction {
   amount    Float
   createdAt DateTime @default(now())
 }
+
+model Message {
+  id        String   @id @default(cuid())
+  name      String
+  lastName  String
+  email     String
+  subject   String?
+  content   String
+  createdAt DateTime @default(now())
+  isRead    Boolean  @default(false)
+  replied   Boolean  @default(false)
+}

@@ -1,6 +1,16 @@
-import React from "react";
+import { sendMessage } from "@/app/actions/sendMessage";
+import { messageSchema } from "@/schemas/messageSchema";
+import { parseWithZod } from "@conform-to/zod";
+import React, { useActionState } from "react";
 
 export const ContactForm = () => {
+  const [state, action, pending] = useActionState(sendMessage, undefined);
+
+  const [form, fields] = useForm({
+    onValidate({ formData }) {
+      return parseWithZod(formData, { schema: messageSchema });
+    },
+  });
   return (
     <form
       //   onSubmit={handleSubmit}
