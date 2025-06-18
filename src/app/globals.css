@@ -256,3 +256,10 @@ form,
   border-radius: 0.2rem;
   background-color: var(--accent);
 }
+
+.service-item {
+  border: solid 1px var(--hover);
+  padding: 1rem;
+  background-color: var(--accent);
+  border-radius: 0.2rem;
+}

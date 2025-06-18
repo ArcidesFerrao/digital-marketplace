@@ -1,32 +1,48 @@
+import Image from "next/image";
 import React from "react";
 
 export default function AboutPage() {
   return (
     <main className="about-page flex flex-col justify-center items-center gap-6 p-10">
       <section className="header flex flex-col text-center">
-        <h2>Empowering Africa&apos;s</h2>
-        <h2>Digital Creators</h2>
+        <h2 className="text-4xl font-bold">Empowering Africa&apos;s</h2>
+        <h2 className="text-4xl font-bold">Digital Creators</h2>
       </section>
-      <section className="flex flex-col gap-10">
-        <p>
+      <section className="flex flex-col items-center gap-10">
+        <p className="max-w-md text-center text-xl">
           Innovante is a digital marketplace dedicated to providing top-tier
           digital tools and support to African freelancers and creators
         </p>
-        <div className="services-list flex">
-          <div className="flex flex-col gap-5 max-w-3xs">
-            <span>icon</span>
-            <h3>Digital Tools</h3>
-            <p>Templates, apps and resources to accelerate your workflow</p>
+        <div className="services-list flex gap-5">
+          <div className="service-item flex flex-col items-center gap-5 max-w-3xs ">
+            <span className="carbon--ibm-cloud-vpc-file-storage"></span>
+            <h3 className="text-xl font-bold">Digital Tools</h3>
+            <div>
+              <p className="text-center">
+                Templates, apps and resources to accelerate
+              </p>
+              <p className="text-center">your workflow</p>
+            </div>
           </div>
-          <div className="flex flex-col gap-5">
-            <span>icon</span>
-            <h3>Freelancer Support</h3>
-            <p>Contracts, proposals and community tools to win more gigs</p>
+          <div className="service-item flex flex-col items-center gap-5">
+            <span className="mdi--handshake"></span>
+            <h3 className="text-xl font-bold">Freelancer Support</h3>
+            <div>
+              <p className="text-center">
+                Contracts, proposals and community tools to
+              </p>
+              <p className="text-center">win more gigs</p>
+            </div>
           </div>
-          <div className="flex flex-col gap-5">
-            <span>icon</span>
-            <h3>Local Payments</h3>
-            <p>We support MZN, Mpesa and instant payouts</p>
+          <div className="service-item flex flex-col items-center gap-5">
+            <span className="streamline-cyber--wallet-cash-1"></span>
+            <h3 className="text-xl font-bold">Local Payments</h3>
+            <div>
+              <p className="text-center">
+                We support MZN, Mpesa and our payouts
+              </p>
+              <p className="text-center">are instant </p>
+            </div>
           </div>
         </div>
         <div className="about-reason flex gap-8">
@@ -55,7 +71,13 @@ export default function AboutPage() {
         <div className="flex flex-col gap-5">
           <h2>Our Story</h2>
           <div className="flex gap-5 ">
-            <span>image</span>
+            <Image
+              src="/assets/profile.png"
+              alt="arcides-ferrao"
+              width={240}
+              height={240}
+              className="border-8 rounded-xl border-white/90 hover:rotate-3"
+            />
             <p className="max-w-sm">
               Born with a simple idea: to change how people buy and sell digital
               things like music, art or designs. We saw people needed a safe,
@@ -66,17 +88,17 @@ export default function AboutPage() {
             </p>
           </div>
         </div>
-        <div className="flex flex-col gap-5">
+        <div className="flex flex-col items-center gap-5">
           <h2>Our mission</h2>
-          <div className="flex">
-            <div>
+          <div className="flex gap-5">
+            <div className="flex flex-col items-center p-5 gap-5">
               <h3>For Creators</h3>
               <p>
                 Give you a fair and easy platform to show your work and earn
                 money from it
               </p>
             </div>
-            <div>
+            <div className="flex flex-col items-center p-5 gap-5">
               <h3>For Buyers</h3>
               <p>
                 Offer you a trusted place to find many different high-quality
