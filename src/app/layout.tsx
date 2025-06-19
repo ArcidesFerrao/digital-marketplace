@@ -4,6 +4,7 @@ import "./globals.css";
 import "./icons.css";
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
+import { Toaster } from "react-hot-toast";
 
 const suseSans = SUSE({
   variable: "--font-suse",
@@ -29,6 +30,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${suseSans.variable}  antialiased`}>
         <Header />
+        <Toaster position="top-right" />
         {children}
         <Footer />
       </body>

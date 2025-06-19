@@ -1,7 +1,11 @@
+"use client";
+
 import { sendMessage } from "@/app/actions/sendMessage";
 import { messageSchema } from "@/schemas/messageSchema";
+import { useForm } from "@conform-to/react";
 import { parseWithZod } from "@conform-to/zod";
-import React, { useActionState } from "react";
+import React, { useActionState, useEffect } from "react";
+import toast from "react-hot-toast";
 
 export const ContactForm = () => {
   const [state, action, pending] = useActionState(sendMessage, undefined);
@@ -10,17 +14,34 @@ export const ContactForm = () => {
     onValidate({ formData }) {
       return parseWithZod(formData, { schema: messageSchema });
     },
+    shouldValidate: "onBlur",
+    shouldRevalidate: "onInput",
   });
+
+  useEffect(() => {
+    if (state?.status === "success" && state.message) {
+      toast.success(state.message, {
+        style: {
+          border: "1px solid var(--hover)",
+          padding: "1rem",
+          color: "var(--accent)",
+        },
+      });
+    }
+  }, [state]);
+
   return (
     <form
-      //   onSubmit={handleSubmit}
+      id={form.id}
+      onSubmit={form.onSubmit}
+      action={action}
       className="contact-form flex flex-col justify-between min-w-96 gap-8 p-10"
     >
       <section className="header">
         <h2 className="text-4xl font-medium">Contact Us</h2>
       </section>
       <div className="full-name flex  gap-4">
-        <input type="text" name="name" id="name" placeholder="Nome" required />
+        <input type="text" name="nome" id="nome" placeholder="Nome" required />
 
         <input
           type="text"
@@ -38,6 +59,7 @@ export const ContactForm = () => {
         className="w-full"
         required
       />
+      {fields.email.errors && <p>{fields.email.errors}</p>}
       <input
         type="text"
         name="assunto"
@@ -54,7 +76,7 @@ export const ContactForm = () => {
       ></textarea>
       <input
         type="submit"
-        // value={isSending ? "Enviando..." : "Enviar Mensagem"}
+        value={pending ? "Enviando..." : "Enviar Mensagem"}
         id="enviar"
       />
     </form>
