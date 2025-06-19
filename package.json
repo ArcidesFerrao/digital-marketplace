@@ -11,7 +11,7 @@
   "dependencies": {
     "@conform-to/react": "^1.7.0",
     "@conform-to/zod": "^1.7.0",
-    "@prisma/client": "^6.10.0",
+    "@prisma/client": "^6.10.1",
     "next": "15.3.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
