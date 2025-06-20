@@ -275,3 +275,32 @@ form,
   background-color: var(--accent);
   border-radius: 0.2rem;
 }
+
+.admin-section {
+  background-color: var(--hover);
+  border-radius: 0.4rem;
+}
+
+.dash-header {
+  border: 1px solid var(--background);
+  padding: 1rem;
+  border-radius: 0.2rem;
+}
+
+.overview {
+  background-color: var(--text);
+  color: var(--background);
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 0.2rem;
+  h1 {
+    font-weight: 700;
+    font-size: xx-large;
+  }
+
+  h3 {
+    font-size: large;
+  }
+}
