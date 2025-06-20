@@ -38,6 +38,10 @@ table {
   border: 1px solid var(--background);
 }
 
+thead tr {
+  background-color: var(--background);
+}
+
 th,
 td {
   padding: 1rem;
@@ -155,9 +159,10 @@ input[type="radio"] {
   border-radius: 0;
 }
 
-a {
+/* a {
   font-weight: 200;
-}
+} */
+
 a:hover {
   text-decoration: underline;
 }

@@ -7,7 +7,7 @@ export const AdminHeader = () => {
       <Link href="/admin">
         <h2>Dashboard</h2>
       </Link>
-      <div className="flex gap-2">
+      <div className="flex gap-5">
         <Link href="/admin/request">Requests</Link>
         <Link href="/admin/report">Report</Link>
         <Link href="/admin/message">Messages</Link>
