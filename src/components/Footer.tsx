@@ -8,7 +8,7 @@ export const Footer = () => (
         <Link href="/about">About</Link>
         <Link href="/contact">Contact</Link>
         <Link href="/#contact">Help</Link>
-        <Link href="/#contact">Terms&Conditions</Link>
+        <Link href="/terms">Terms&Conditions</Link>
       </div>
       <div className="footer-links flex flex-col-reverse h-full justify-between gap-2">
         <Link href="mailto:cidesferrao@gmail.com">
