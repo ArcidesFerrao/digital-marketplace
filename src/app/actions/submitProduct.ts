@@ -1,3 +1,5 @@
+"use server"
+
 import db from "@/db/db";
 import { productSchema } from "@/schemas/productSchema";
 import { parseWithZod } from "@conform-to/zod";
