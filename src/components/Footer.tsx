@@ -17,7 +17,7 @@ export const Footer = () => (
         <Link href="#">
           <span className="mage--whatsapp"></span>
         </Link>
-        <Link href="#">
+        <Link href="https://github.com/ArcidesFerrao">
           <span className="jam--github"></span>
         </Link>
       </div>
