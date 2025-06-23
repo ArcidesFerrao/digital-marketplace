@@ -23,7 +23,7 @@ export const Footer = () => (
       </div>
     </footer>
     <div className="text-center">
-      <p>© {new Date().getFullYear()} Web Studio. All rights reserved.</p>
+      <p>© 2025 Web Studio. All rights reserved.</p>
     </div>
   </section>
 );

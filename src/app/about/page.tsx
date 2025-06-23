@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 export default function AboutPage() {
@@ -75,8 +76,8 @@ export default function AboutPage() {
               Innovante&apos;s Digital Marketplace today!
             </p>
             <div className="flex gap-5">
-              <button>Start Selling</button>
-              <button>Explore our products</button>
+              <Link href="/product/new">Start Selling</Link>
+              <Link href="/products">Explore our products</Link>
             </div>
           </div>
         </div>
