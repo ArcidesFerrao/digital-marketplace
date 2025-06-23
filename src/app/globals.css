@@ -322,3 +322,12 @@ form,
     font-size: large;
   }
 }
+
+.message {
+  border: solid 1px var(--background);
+  border-radius: 0.2rem;
+}
+
+.header-msg {
+  border-bottom: solid 1px var(--background);
+}
