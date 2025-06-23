@@ -27,6 +27,7 @@ export async function submitProduct(prevState: unknown, formData: FormData) {
             description,
             fileUrl,
             sellerId: "e5f7efda-c836-485d-b8e1-0f5e7356c775",
+            isApproved: false,
         },
         
     })

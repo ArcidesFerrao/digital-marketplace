@@ -24,6 +24,7 @@ model Product {
   category    String
   description String
   fileUrl     String
+  isApproved  Boolean  @default(false)
   sellerId    String
   createdAt   DateTime @default(now())
   seller      User     @relation(fields: [sellerId], references: [id])

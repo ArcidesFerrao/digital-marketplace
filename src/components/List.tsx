@@ -52,6 +52,9 @@ export const List = async () => {
       category: true,
       createdAt: true,
     },
+    where: { isApproved: true },
+    take: 10,
+    orderBy: { createdAt: "desc" },
   });
 
   return (
@@ -75,6 +78,8 @@ export const List = async () => {
             price={item.price}
           />
         ))}
+      </div>
+      <div className="list-items grid grid-cols-3 gap-y-5 justify-items-center w-full">
         {productList.map((item) => (
           <ListCard
             key={item.id}
@@ -94,6 +99,7 @@ export const List = async () => {
             alt="contracts template"
             width={200}
             height={200}
+            priority={false}
           />
           <div className="flex flex-col gap-2">
             <h3 className="text-lg font-medium">
@@ -113,6 +119,7 @@ export const List = async () => {
             alt="nextjs template"
             width={200}
             height={200}
+            priority={false}
           />
           <div className="flex flex-col gap-2">
             <h3 className="text-lg font-medium">
@@ -132,6 +139,7 @@ export const List = async () => {
             alt="contracts template"
             width={200}
             height={200}
+            priority={false}
           />
           <div className="flex flex-col gap-2">
             <h3 className="text-lg font-medium">
@@ -158,6 +166,7 @@ export const ProductCard = ({ title, width, price, image }: productProps) => {
         alt="contracts template"
         width={width}
         height={width}
+        priority={false}
       />
       <div className="flex flex-col gap-2">
         <h3 className="text-lg font-medium">{title}</h3>
@@ -182,6 +191,7 @@ export const ListCard = ({
         alt="contracts template"
         width={200}
         height={200}
+        priority={false}
       />
       <div className="flex flex-col gap-2">
         <Link href={`/product/${id}`}>
@@ -191,7 +201,7 @@ export const ListCard = ({
         <h3 className="text-lg font-bold">MZN {price}.00</h3>
         <div className="flex justify-between">
           <p>{category}</p>
-          <p>{new Date(createdAt).toDateString()}</p>
+          <p>{new Date(createdAt).toLocaleDateString()}</p>
         </div>
         <button>Buy Now</button>
       </div>
