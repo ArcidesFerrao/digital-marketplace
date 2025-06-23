@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { Description } from "./Description";
+import db from "@/db/db";
 
 interface productProps {
   // id: number;
@@ -10,8 +11,15 @@ interface productProps {
   width: number;
   price: string;
 }
+interface listProps {
+  id: string;
+  title: string;
+  category: string;
+  price: number;
+  createdAt: Date;
+}
 
-export const List = () => {
+export const List = async () => {
   const products = [
     {
       id: 1,
@@ -35,6 +43,17 @@ export const List = () => {
       price: "MZN 600.00",
     },
   ];
+
+  const productList = await db.product.findMany({
+    select: {
+      id: true,
+      title: true,
+      price: true,
+      category: true,
+      createdAt: true,
+    },
+  });
+
   return (
     <section
       id="products"
@@ -46,7 +65,7 @@ export const List = () => {
           <p>see more {">"}</p>
         </Link>
       </div>
-      <div className="list-items grid grid-cols-3 justify-items-center w-full">
+      <div className="list-items grid grid-cols-3 gap-y-5 justify-items-center w-full">
         {products.map((item) => (
           <ProductCard
             key={item.id}
@@ -54,6 +73,16 @@ export const List = () => {
             image={item.image}
             width={item.width}
             price={item.price}
+          />
+        ))}
+        {productList.map((item) => (
+          <ListCard
+            key={item.id}
+            id={item.id}
+            title={item.title}
+            price={item.price}
+            category={item.category}
+            createdAt={item.createdAt}
           />
         ))}
       </div>
@@ -134,6 +163,36 @@ export const ProductCard = ({ title, width, price, image }: productProps) => {
         <h3 className="text-lg font-medium">{title}</h3>
 
         <h3 className="text-lg font-bold">{price}</h3>
+        <button>Buy Now</button>
+      </div>
+    </div>
+  );
+};
+export const ListCard = ({
+  id,
+  title,
+  price,
+  category,
+  createdAt,
+}: listProps) => {
+  return (
+    <div className="product-card flex flex-col gap-2">
+      <Image
+        src="/assets/Beginner-Freelancer-2.png"
+        alt="contracts template"
+        width={200}
+        height={200}
+      />
+      <div className="flex flex-col gap-2">
+        <Link href={`/product/${id}`}>
+          <h3 className="text-lg font-medium">{title}</h3>
+        </Link>
+
+        <h3 className="text-lg font-bold">MZN {price}.00</h3>
+        <div className="flex justify-between">
+          <p>{category}</p>
+          <p>{new Date(createdAt).toDateString()}</p>
+        </div>
         <button>Buy Now</button>
       </div>
     </div>
