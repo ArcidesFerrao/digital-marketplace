@@ -10,9 +10,9 @@ export default async function RequestsPage() {
     <main className="admin-section p-20 flex flex-col gap-10">
       <AdminHeader />
 
-      <section>
+      <section className="flex flex-col gap-5">
         <div>
-          <h2>Requests</h2>
+          <h2 className="text-2xl">Requests ({products.length})</h2>
         </div>
 
         <table>
@@ -31,7 +31,7 @@ export default async function RequestsPage() {
                 <tr key={item.id}>
                   <td>{item.title}</td>
                   <td>{item.category}</td>
-                  <td>{item.price}</td>
+                  <td>MZN {item.price}.00</td>
                   <td>{item.seller.name}</td>
                   <td>
                     <ApproveForm productId={item.id} />
@@ -39,7 +39,7 @@ export default async function RequestsPage() {
                 </tr>
               ))
             ) : (
-              <tr>nenhum produto encontrado!</tr>
+              <tr className="text-center">nenhum produto encontrado!</tr>
             )}
           </tbody>
         </table>

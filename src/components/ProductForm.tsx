@@ -33,7 +33,7 @@ export const ProductForm = () => {
 
   return (
     <form
-      className="flex flex-col justify-between min-w-96 gap-5 p-10"
+      className="product-form flex flex-col justify-between min-w-96 gap-5 p-10"
       id={form.id}
       onSubmit={form.onSubmit}
       action={action}
