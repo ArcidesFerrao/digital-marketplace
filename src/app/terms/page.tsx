@@ -2,11 +2,11 @@ import React from "react";
 
 export default function TermsPage() {
   return (
-    <main>
+    <main className="about-page flex flex-col justify-center items-center gap-6 p-10">
       <section className="terms-header flex flex-col gap-5">
-        <h1>Terms and Conditions</h1>
+        <h1 className="text-4xl font-bold">Terms and Conditions</h1>
         <div>
-          <h3>Effective Date:</h3>
+          <h3 className="font-bold">Effective Date:</h3>
           <p></p>
         </div>
         <p>
@@ -17,9 +17,9 @@ export default function TermsPage() {
           carefully before using our platform.
         </p>
       </section>
-      <section className="terms-content flex flex-col">
+      <section className="terms-content flex flex-col  gap-5 p-5">
         <div className="flex flex-col">
-          <h2>1. Eligibility</h2>
+          <h2 className="text-xl font-bold">1. Eligibility</h2>
           <p>
             You must be at least 18 years old to use this site or have the
             consent of a legal guardian. By using Innovante`s Digital
@@ -27,7 +27,7 @@ export default function TermsPage() {
           </p>
         </div>
         <div className="flex flex-col">
-          <h2>2. Account Registration</h2>
+          <h2 className="text-xl font-bold">2. Account Registration</h2>
           <ul>
             <li>
               You may be required to create an account to access certain
@@ -46,7 +46,7 @@ export default function TermsPage() {
           </ul>
         </div>
         <div className="flex flex-col">
-          <h2>3. Products and Services</h2>
+          <h2 className="text-xl font-bold">3. Products and Services</h2>
           <ul>
             <li>
               Our marketplace offers digital products, such as templates,
@@ -67,7 +67,7 @@ export default function TermsPage() {
           </ul>
         </div>
         <div className="flex flex-col">
-          <h2>4. Payments</h2>
+          <h2 className="text-xl font-bold">4. Payments</h2>
           <ul>
             <li>
               Buyers agree to pay the price listed for any product they
@@ -84,7 +84,7 @@ export default function TermsPage() {
           </ul>
         </div>
         <div className="flex flex-col">
-          <h2>5. User Conduct</h2>
+          <h2 className="text-xl font-bold">5. User Conduct</h2>
           <p>You agree not to:</p>
           <ul>
             <li>Upload or share harmful, illegal, or infringing content.</li>
@@ -94,7 +94,7 @@ export default function TermsPage() {
           </ul>
         </div>
         <div className="flex flex-col">
-          <h2>6. Intellectual Property</h2>
+          <h2 className="text-xl font-bold">6. Intellectual Property</h2>
           <ul>
             <li>
               All content on the platform is either owned by Innovante or
@@ -111,7 +111,7 @@ export default function TermsPage() {
           </ul>
         </div>
         <div className="flex flex-col">
-          <h2>7. Refunds and Disputes</h2>
+          <h2 className="text-xl font-bold">7. Refunds and Disputes</h2>
           <ul>
             <li>
               Due to the nature of digital products, refunds are generally not
@@ -129,7 +129,7 @@ export default function TermsPage() {
         </div>
 
         <div className="flex flex-col">
-          <h2>8. Suspension or Termination</h2>
+          <h2 className="text-xl font-bold">8. Suspension or Termination</h2>
           <p>
             We reserve the right to suspend or terminate your access to the
             platform if you violate these Terms, engage in fraud, or harm the
@@ -137,7 +137,7 @@ export default function TermsPage() {
           </p>
         </div>
         <div className="flex flex-col">
-          <h2>9. Modifications</h2>
+          <h2 className="text-xl font-bold">9. Modifications</h2>
           <p>
             We may update these Terms at any time. Changes will be posted on
             this page with a new effective date. Continued use of the platform
@@ -146,7 +146,9 @@ export default function TermsPage() {
         </div>
 
         <div className="flex flex-col">
-          <h2>10. Disclaimer and Limitation of Liability</h2>
+          <h2 className="text-xl font-bold">
+            10. Disclaimer and Limitation of Liability
+          </h2>
           <ul>
             <li>
               The marketplace is provided “as-is” without warranties of any
@@ -163,18 +165,16 @@ export default function TermsPage() {
           </ul>
         </div>
         <div className="flex flex-col">
-          <h2>11. Governing Law</h2>
+          <h2 className="text-xl font-bold">11. Governing Law</h2>
           <p>
             These Terms shall be governed by the laws of the Republic of
             Mozambique, without regard to conflict of law principles.
           </p>
         </div>
         <div className="flex flex-col">
-          <h2>12. Contact Us</h2>
-          <p>
-            For any questions regarding these Terms, please contact us at: 📧
-            legal@innovante.co.mz
-          </p>
+          <h2 className="text-xl font-bold">12. Contact Us</h2>
+          <p>For any questions regarding these Terms, please contact us at:</p>
+          <p>📧 legal@innovante.co.mz</p>
         </div>
       </section>
     </main>

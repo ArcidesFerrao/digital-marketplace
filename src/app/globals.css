@@ -331,3 +331,15 @@ input[type="submit"]:hover,
 .header-msg {
   border-bottom: solid 1px var(--background);
 }
+
+.terms-content div p {
+  padding: 1rem 0;
+}
+.terms-content div {
+  border-bottom: solid 2px var(--text);
+}
+.terms-content ul {
+  list-style: disc inside;
+  padding: 1rem 0;
+  font-weight: lighter;
+}
