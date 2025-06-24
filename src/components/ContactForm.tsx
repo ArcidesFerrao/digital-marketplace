@@ -35,7 +35,7 @@ export const ContactForm = () => {
       id={form.id}
       onSubmit={form.onSubmit}
       action={action}
-      className="contact-form flex flex-col justify-between min-w-96 gap-8 p-10"
+      className="contact-form flex flex-col justify-between min-w-96 gap-8 p-12"
     >
       <section className="header">
         <h2 className="text-4xl font-medium">Contact Us</h2>

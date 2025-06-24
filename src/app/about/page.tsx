@@ -89,7 +89,7 @@ export default function AboutPage() {
               alt="arcides-ferrao"
               width={240}
               height={240}
-              className="border-8 rounded-xl border-white/90 hover:rotate-3"
+              className="image-profile border-8 rounded-xl border-white/90 hover:rotate-3"
             />
             <div className="flex flex-col justify-around">
               <p className="max-w-sm">

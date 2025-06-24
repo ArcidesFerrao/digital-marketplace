@@ -116,6 +116,7 @@ input[type="submit"]:active {
 button {
   transition: all ease-in 200ms;
 }
+
 textarea,
 input,
 input[type="submit"],
@@ -241,6 +242,7 @@ input[type="submit"]:hover,
   border-color: var(--text);
 }
 
+.contact-form:hover,
 .signup-section:hover,
 .login-section:hover {
   background-color: var(--hover);
@@ -248,6 +250,7 @@ input[type="submit"]:hover,
 }
 
 .product-form,
+.contact-form,
 .signup-section,
 .login-section {
   background-color: var(--accent);
@@ -268,6 +271,10 @@ input[type="submit"]:hover,
   color: var(--text);
 }
 
+.signup-section,
+.login-section {
+  margin: 5rem auto;
+}
 .reason {
   max-width: 240px;
 }
@@ -288,6 +295,8 @@ input[type="submit"]:hover,
 .about-page img {
   border-radius: 4rem;
   opacity: 60%;
+  transition: all ease-in 400ms;
+  cursor: pointer;
 }
 
 .about-mission {

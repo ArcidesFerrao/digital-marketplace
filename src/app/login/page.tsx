@@ -3,7 +3,7 @@ import React from "react";
 
 export default function LoginPage() {
   return (
-    <main className="login-section flex flex-col justify-center gap-6 p-10">
+    <main className="login-section flex flex-col justify-center gap-6 p-10 ">
       <section className="flex flex-col gap-2">
         <h2 className="text-4xl font-medium">Login</h2>
         <div className="flex gap-1">

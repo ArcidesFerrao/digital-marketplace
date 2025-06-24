@@ -21,7 +21,9 @@ export default function SignUpPage() {
         </div>
       </section>
       <section className="flex flex-col  gap-4 items-center">
-        <p>I agree to the Terms of Service</p>
+        <p>
+          I agree to the <Link href="/terms">Terms of Service </Link>
+        </p>
         <button type="submit" className="w-full">
           Create Account
         </button>
