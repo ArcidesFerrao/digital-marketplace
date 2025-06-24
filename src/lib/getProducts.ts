@@ -6,3 +6,10 @@ export async function getProducts() {
     include: { seller: true },
   })
 }
+
+export async function getApprovedProducts() {
+  return await db.product.findMany({
+    where: { isApproved: true },
+    include: { seller: true },
+  })
+}

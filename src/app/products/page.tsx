@@ -1,7 +1,9 @@
 import React from "react";
-import { ProductCard } from "../../components/List";
+import { ListCard, ProductCard } from "../../components/List";
+import { getApprovedProducts } from "@/lib/getProducts";
 
-export default function ProductsPage() {
+export default async function ProductsPage() {
+  const data = await getApprovedProducts();
   const products = [
     {
       id: 1,
@@ -49,7 +51,7 @@ export default function ProductsPage() {
   return (
     <main className="flex flex-col gap-10 p-5">
       <h2 className="text-4xl font-medium">Explore our products...</h2>
-      <section>
+      <section className="flex flex-col gap-y-5">
         <div className="list-items grid grid-cols-3 gap-y-5 w-full">
           {products.map((item) => (
             <ProductCard
@@ -58,6 +60,18 @@ export default function ProductsPage() {
               image={item.image}
               width={item.width}
               price={item.price}
+            />
+          ))}
+        </div>
+        <div className="list-items grid grid-cols-3 gap-y-5 w-full">
+          {data.map((item) => (
+            <ListCard
+              key={item.id}
+              title={item.title}
+              category={item.category}
+              price={item.price}
+              id={item.id}
+              createdAt={item.createdAt}
             />
           ))}
         </div>
