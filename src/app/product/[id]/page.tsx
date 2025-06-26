@@ -23,6 +23,7 @@ export default async function ProductPage({
       description: true,
       category: true,
       createdAt: true,
+      seller: true,
     },
   });
 
@@ -33,16 +34,23 @@ export default async function ProductPage({
       </main>
     );
   return (
-    <main>
+    <main className="flex gap-10">
       <section>
-        <h2>{product.title}</h2>
+        <Image
+          className="rounded-2xl"
+          src="/assets/Beginner-Freelancer-2.png"
+          alt="product-image"
+          width={500}
+          height={500}
+        />
       </section>
-      <section>
-        <Image src="/" alt="product-image" width={500} height={500} />
-        <div>
-          <h2>{product.price}</h2>
-          <p>{product.description}</p>
-        </div>
+      <section className="flex flex-col gap-5">
+        <h2 className="text-2xl font-medium">{product.title}</h2>
+        <h2 className="text-4xl font-bold">MZN {product.price}.00</h2>
+        <p>{product.description}</p>
+        <p>Category: {product.category}</p>
+        <p>By: {product.seller.name}</p>
+        <button>Buy</button>
       </section>
     </main>
   );
