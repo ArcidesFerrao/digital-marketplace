@@ -34,23 +34,23 @@ export default async function ProductPage({
       </main>
     );
   return (
-    <main className="flex gap-10">
-      <section>
+    <main className="flex gap-10 p-5">
+      <section className="flex h-fit gap-10">
         <Image
-          className="rounded-2xl"
+          className="rounded-lg h-fit"
           src="/assets/Beginner-Freelancer-2.png"
           alt="product-image"
-          width={500}
-          height={500}
+          width={300}
+          height={300}
         />
-      </section>
-      <section className="flex flex-col gap-5">
-        <h2 className="text-2xl font-medium">{product.title}</h2>
-        <h2 className="text-4xl font-bold">MZN {product.price}.00</h2>
-        <p>{product.description}</p>
-        <p>Category: {product.category}</p>
-        <p>By: {product.seller.name}</p>
-        <button>Buy</button>
+        <section className="flex flex-col justify-between">
+          <h2 className="text-2xl font-medium">{product.title}</h2>
+          <h2 className="text-4xl font-bold">MZN {product.price}.00</h2>
+          <p>{product.description}</p>
+          <p>Category: {product.category}</p>
+          <p>By: {product.seller.name}</p>
+          <button>Buy</button>
+        </section>
       </section>
     </main>
   );
