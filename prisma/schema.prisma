@@ -24,6 +24,7 @@ model Product {
   category    String
   description String
   fileUrl     String
+  imageUrl    String
   isApproved  Boolean  @default(false)
   sellerId    String
   createdAt   DateTime @default(now())

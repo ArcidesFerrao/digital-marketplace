@@ -6,5 +6,6 @@ export const productSchema = z.object({
     description: z.string().min(10, "Seja mais especifico"),
     category: z.string().min(3),
     fileUrl: z.string().url(),
+    imageUrl: z.string().url(),
     price: z.coerce.number().int().min(10),
 })

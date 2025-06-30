@@ -362,3 +362,8 @@ input[type="submit"]:hover,
   padding: 1rem 0;
   font-weight: lighter;
 }
+
+.uploadthing {
+  border-color: var(--hover);
+  background-color: var(--accent);
+}

@@ -2,9 +2,11 @@
 
 import { submitProduct } from "@/app/actions/submitProduct";
 import { productSchema } from "@/schemas/productSchema";
+import { UploadDropzone } from "@/utils/uploadthing";
 import { useForm } from "@conform-to/react";
 import { parseWithZod } from "@conform-to/zod";
-import React, { useActionState, useEffect } from "react";
+import Image from "next/image";
+import React, { useActionState, useEffect, useState } from "react";
 import toast from "react-hot-toast";
 
 export const ProductForm = () => {
@@ -18,6 +20,8 @@ export const ProductForm = () => {
     shouldValidate: "onBlur",
     shouldRevalidate: "onInput",
   });
+
+  const [imageUrl, setImageUrl] = useState<string>("");
 
   useEffect(() => {
     if (state?.status === "success" && state.message) {
@@ -97,7 +101,21 @@ export const ProductForm = () => {
             <span className="category-span">Stock Photography</span>
           </label>
         </fieldset>
-
+        <input type="hidden" name="imageUrl" id="imageUrl" />
+        {imageUrl !== "" ? (
+          <Image src={imageUrl} alt="product" width={300} height={300} />
+        ) : (
+          <UploadDropzone
+            className="max-h-60 uploadthing"
+            endpoint="imageUploader"
+            onClientUploadComplete={(res) => {
+              setImageUrl(res[0].ufsUrl);
+            }}
+            onUploadError={() => {
+              alert("something went wrong");
+            }}
+          />
+        )}
         <textarea
           name="description"
           id="description"
@@ -113,7 +131,12 @@ export const ProductForm = () => {
           <p>Product will be approved after the Url is checked.</p>
         </div>
       </section>
-      <input type="submit" value={pending ? "..." : "Submit"} id="submit" />
+      <input
+        type="submit"
+        value={pending ? "..." : "Submit"}
+        id="submit"
+        disabled={pending}
+      />
     </form>
   );
 };

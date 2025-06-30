@@ -39,7 +39,9 @@ export default async function RequestsPage() {
                 </tr>
               ))
             ) : (
-              <tr className="text-center">nenhum produto encontrado!</tr>
+              <tr className="text-center">
+                <td>nenhum produto encontrado!</td>
+              </tr>
             )}
           </tbody>
         </table>

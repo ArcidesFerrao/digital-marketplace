@@ -32,7 +32,9 @@ export default async function ReportPage() {
                 </tr>
               ))
             ) : (
-              <tr className="text-center">nenhuma transacao encontrada!</tr>
+              <tr className="text-center">
+                <td>nenhuma transacao encontrada!</td>
+              </tr>
             )}
           </tbody>
         </table>
