@@ -120,6 +120,7 @@ button {
 textarea,
 input,
 input[type="submit"],
+.reply-msg a,
 .about-reason a,
 .call-action a,
 .hero-buttons span {
@@ -129,6 +130,7 @@ textarea,
 input,
 button,
 input[type="submit"],
+.reply-msg a,
 .about-reason a,
 .call-action a,
 .hero-buttons span {
@@ -176,6 +178,7 @@ p {
 
 button:hover,
 input[type="submit"]:hover,
+.reply-msg a:hover,
 .about-reason a:hover,
 .call-action a:hover,
 .hero-buttons span:hover,
@@ -335,9 +338,13 @@ input[type="submit"]:hover,
   }
 }
 
-.message {
+.message-section {
   border: solid 1px var(--background);
   border-radius: 0.2rem;
+}
+
+.reply-msg a {
+  padding: 1rem 2rem;
 }
 
 .header-msg {

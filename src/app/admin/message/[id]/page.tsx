@@ -1,5 +1,6 @@
 import { AdminHeader } from "@/components/AdminHeader";
 import db from "@/db/db";
+import Link from "next/link";
 import React from "react";
 
 export default async function MessagePage({
@@ -27,7 +28,7 @@ export default async function MessagePage({
     <main className="admin-section p-20 flex flex-col gap-10">
       <AdminHeader />
 
-      <section className="message flex flex-col">
+      <section className="message-section flex flex-col">
         <div className="header-msg flex justify-between  p-5">
           <h2>Message from: {`${message?.name}  ${message?.lastName}`}</h2>
           <p>{new Date(message.createdAt).toLocaleDateString()}</p>
@@ -37,7 +38,9 @@ export default async function MessagePage({
         </div>
       </section>
       <section className="reply-msg">
-        <button>Reply</button>
+        <Link href={`mailto:${message.email}?subject=Reply to your message`}>
+          Reply
+        </Link>
       </section>
     </main>
   );
