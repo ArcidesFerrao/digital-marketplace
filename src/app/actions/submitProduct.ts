@@ -17,7 +17,7 @@ export async function submitProduct(prevState: unknown, formData: FormData) {
         }
     }
 
-    const {title, price, category, description, fileUrl } = submission.value;
+    const {title, price, category, description, fileUrl, imageUrl } = submission.value;
 
     await db.product.create({
         data: {
@@ -26,7 +26,7 @@ export async function submitProduct(prevState: unknown, formData: FormData) {
             category,
             description,
             fileUrl,
-            
+            imageUrl,
             sellerId: "e5f7efda-c836-485d-b8e1-0f5e7356c775",
             isApproved: false,
         },

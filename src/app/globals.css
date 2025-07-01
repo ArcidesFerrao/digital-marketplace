@@ -7,6 +7,7 @@
   --shadow: rgba(244, 245, 250, 0.1);
   --hover: #1c1c1c;
   --accent: #303b2b4b;
+  --placeholder: #f4f5fa;
 }
 
 /* @theme inline {
@@ -52,12 +53,14 @@ th {
 }
 
 fieldset {
-  padding: 1rem;
+  padding: 2rem 1rem;
   border: 4px;
   flex-wrap: wrap;
 }
 legend {
-  padding: 0.4rem;
+  padding: 0.4rem 1rem;
+  background-color: var(--accent);
+  color: var(--text);
 }
 
 legend,
@@ -153,6 +156,7 @@ input[type="radio"] {
   border: 1px solid var(--hover);
   border-radius: 0.2rem;
   cursor: pointer;
+  transition: all 300ms ease-in;
 }
 
 .radio .category-span:hover {

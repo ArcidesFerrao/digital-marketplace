@@ -22,6 +22,7 @@ export const ProductForm = () => {
   });
 
   const [imageUrl, setImageUrl] = useState<string>("");
+  const [price, setPrice] = useState<number>(0);
 
   useEffect(() => {
     if (state?.status === "success" && state.message) {
@@ -46,19 +47,32 @@ export const ProductForm = () => {
         <h2 className="text-4xl font-medium">Submit Product</h2>
       </section>
       <section className="flex flex-col gap-5">
-        <div className="flex items-center gap-5">
-          <input
-            type="text"
-            name="title"
-            id="title"
-            className="min-w-72"
-            placeholder="Product Name"
-          />
+        <div className="flex flex-col gap-2">
+          <div className="flex items-center gap-5">
+            <div className="flex items-center gap-5">
+              <input
+                type="text"
+                name="title"
+                id="title"
+                className="min-w-72"
+                placeholder="Product Name"
+              />
+              <div className="price-input flex gap-2 items-center">
+                <label htmlFor="number" className="text-lg">
+                  Price:
+                </label>
+                <input
+                  type="number"
+                  name="price"
+                  id="price"
+                  value={price}
+                  onChange={(e) => setPrice(Number(e.target.value))}
+                />
+                <h2>MZN {price}.00</h2>
+              </div>
+            </div>
+          </div>
           {fields.title.errors && <p>{fields.title.errors}</p>}
-        </div>
-        <div className="flex gap-2 items-center">
-          <label htmlFor="number">Price:</label>
-          <input type="number" name="price" id="price" />
           {fields.price.errors && <p>{fields.price.errors}</p>}
         </div>
         <fieldset className="flex gap-2">
@@ -101,9 +115,20 @@ export const ProductForm = () => {
             <span className="category-span">Stock Photography</span>
           </label>
         </fieldset>
-        <input type="hidden" name="imageUrl" id="imageUrl" />
+        {fields.category.errors && <p>{fields.category.errors}</p>}
+
+        <input type="hidden" name="imageUrl" id="imageUrl" value={imageUrl} />
         {imageUrl !== "" ? (
-          <Image src={imageUrl} alt="product" width={300} height={300} />
+          <div className="flex justify-center">
+            <Image
+              src={imageUrl}
+              alt="product"
+              width={300}
+              height={300}
+              unoptimized
+              className="rounded-lg"
+            />
+          </div>
         ) : (
           <UploadDropzone
             className="max-h-60 uploadthing"
@@ -116,11 +141,15 @@ export const ProductForm = () => {
             }}
           />
         )}
+        {fields.imageUrl.errors && <p>{fields.imageUrl.errors}</p>}
+
         <textarea
           name="description"
           id="description"
           placeholder="About the product..."
         />
+        {fields.description.errors && <p>{fields.description.errors}</p>}
+
         <div className="flex flex-col">
           <input
             type="url"
@@ -129,6 +158,7 @@ export const ProductForm = () => {
             placeholder="File/Folder Url"
           />
           <p>Product will be approved after the Url is checked.</p>
+          {fields.fileUrl.errors && <p>{fields.fileUrl.errors}</p>}
         </div>
       </section>
       <input
