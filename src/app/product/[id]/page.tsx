@@ -65,7 +65,7 @@ export default async function ProductPage({
               id="amount"
               value={product.price}
             />
-            <input type="hidden" name="id" id="productId" value={id} />
+            <input type="hidden" name="productId" id="productId" value={id} />
             <input type="submit" value="Buy" />
           </form>
         </section>
