@@ -1,3 +1,4 @@
+import { createTransaction } from "@/app/actions/createTransaction";
 import db from "@/db/db";
 import Image from "next/image";
 import React from "react";
@@ -24,6 +25,7 @@ export default async function ProductPage({
       category: true,
       createdAt: true,
       seller: true,
+      imageUrl: true,
     },
   });
 
@@ -38,7 +40,7 @@ export default async function ProductPage({
       <section className="flex h-fit gap-10">
         <Image
           className="rounded-lg h-fit"
-          src="/assets/Beginner-Freelancer-2.png"
+          src={product.imageUrl}
           alt="product-image"
           width={300}
           height={300}
@@ -49,7 +51,23 @@ export default async function ProductPage({
           <p>{product.description}</p>
           <p>Category: {product.category}</p>
           <p>By: {product.seller.name}</p>
-          <button>Buy</button>
+          <form action={createTransaction} className="flex flex-col">
+            <input
+              type="hidden"
+              name="sellerId"
+              id="sellerId"
+              value={product.seller.id}
+            />
+
+            <input
+              type="hidden"
+              name="amount"
+              id="amount"
+              value={product.price}
+            />
+            <input type="hidden" name="id" id="productId" value={id} />
+            <input type="submit" value="Buy" />
+          </form>
         </section>
       </section>
     </main>
