@@ -8,13 +8,16 @@ datasource db {
 }
 
 model User {
-  id        String    @id @default(uuid())
+  id        String  @id @default(uuid())
   name      String
-  email     String    @unique
+  email     String  @unique
   password  String
-  isPremium Boolean   @default(false)
-  balance   Float     @default(0)
-  products  Product[]
+  isPremium Boolean @default(false)
+  balance   Float   @default(0)
+
+  products           Product[]     @relation("SellerProducts")
+  transactionsBought Transaction[] @relation("BuyerTransactions")
+  transactionsSold   Transaction[] @relation("SellerTransactions")
 }
 
 model Product {
@@ -28,7 +31,9 @@ model Product {
   isApproved  Boolean  @default(false)
   sellerId    String
   createdAt   DateTime @default(now())
-  seller      User     @relation(fields: [sellerId], references: [id])
+
+  seller      User          @relation("SellerProducts", fields: [sellerId], references: [id])
+  Transaction Transaction[]
 }
 
 model Transaction {
@@ -38,6 +43,10 @@ model Transaction {
   productId String
   amount    Float
   createdAt DateTime @default(now())
+
+  product Product @relation(fields: [productId], references: [id])
+  seller  User[]  @relation("SellerTransactions")
+  buyer   User[]  @relation("BuyerTransactions")
 }
 
 model Message {

@@ -1,4 +1,6 @@
 import db from "@/db/db";
+import Image from "next/image";
+import Link from "next/link";
 
 export default async function TransactionPage({
   params,
@@ -7,12 +9,54 @@ export default async function TransactionPage({
 }) {
   const { id } = await params;
   if (!id) {
-    return <main>Transaction not found</main>;
+    return <main className="transaction-page">Transaction not found</main>;
   }
 
   const data = await db.transaction.findUnique({
     where: { id },
+    include: {
+      product: true,
+      buyer: true,
+    },
   });
 
-  return <main>{data?.amount}</main>;
+  if (!data) {
+    return <main className="transaction-page">Transaction not found</main>;
+  }
+  return (
+    <main className="transaction-page flex flex-col items-center justify-between p-20 ">
+      <section className="header-transaction text-center flex flex-col gap-2">
+        <h2 className="text-4xl font-bold">Compra concluida com sucesso!</h2>
+        <p>O seu ficheiro esta pronto para ser descarregado</p>
+      </section>
+      <section className="p-5">
+        <Image
+          className="rounded-lg"
+          src={data.product.imageUrl}
+          width={300}
+          height={300}
+          alt="product-image"
+        ></Image>
+      </section>
+      <section className="details-transaction  flex flex-col gap-4">
+        <h2 className="text-center text-2xl font-medium">
+          <Link href={data?.product.fileUrl}>{data.product.title}</Link>
+        </h2>
+        <div className="flex gap-10">
+          <div className="info flex flex-col gap-2">
+            <h3>Type of file</h3>
+            <h3>Price</h3>
+            <h3>Date</h3>
+            <h3>Transaction ID</h3>
+          </div>
+          <div className="detail  flex flex-col gap-2">
+            <p>PDF</p>
+            <p>MZN {data.amount}.00</p>
+            <p>{data.createdAt.toLocaleDateString()}</p>
+            <p>{data.id}</p>
+          </div>
+        </div>
+      </section>
+    </main>
+  );
 }

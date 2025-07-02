@@ -256,6 +256,7 @@ input[type="submit"]:hover,
   box-shadow: 6px 8px 0 var(--shadow);
 }
 
+.transaction-page,
 .product-form,
 .contact-form,
 .signup-section,
