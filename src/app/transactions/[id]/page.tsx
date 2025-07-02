@@ -24,7 +24,7 @@ export default async function TransactionPage({
     return <main className="transaction-page">Transaction not found</main>;
   }
   return (
-    <main className="transaction-page flex flex-col items-center justify-between p-20 ">
+    <main className="transaction-page flex flex-col items-center gap-4 p-16 ">
       <section className="header-transaction text-center flex flex-col gap-2">
         <h2 className="text-4xl font-bold">Compra concluida com sucesso!</h2>
         <p>O seu ficheiro esta pronto para ser descarregado</p>
@@ -38,9 +38,12 @@ export default async function TransactionPage({
           alt="product-image"
         ></Image>
       </section>
-      <section className="details-transaction  flex flex-col gap-4">
-        <h2 className="text-center text-2xl font-medium">
-          <Link href={data?.product.fileUrl}>{data.product.title}</Link>
+      <section className="details-transaction  flex flex-col gap-4 ">
+        <h2 className="text-center text-xl font-medium py-4">
+          <Link href={data?.product.fileUrl}>Download File</Link>
+        </h2>
+        <h2 className="title-center text-xl font-medium ">
+          {data.product.title}
         </h2>
         <div className="flex gap-10">
           <div className="info flex flex-col gap-2">
@@ -56,6 +59,9 @@ export default async function TransactionPage({
             <p>{data.id}</p>
           </div>
         </div>
+      </section>
+      <section className="links-back flex p-2 my-5">
+        <Link href="/products">Back to the Marketplace</Link>
       </section>
     </main>
   );

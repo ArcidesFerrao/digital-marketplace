@@ -126,6 +126,8 @@ input[type="submit"],
 .reply-msg a,
 .about-reason a,
 .call-action a,
+.links-back a,
+.text-center a,
 .hero-buttons span {
   transition: all ease-in 400ms;
 }
@@ -136,6 +138,8 @@ input[type="submit"],
 .reply-msg a,
 .about-reason a,
 .call-action a,
+.links-back a,
+.text-center a,
 .hero-buttons span {
   padding: 0.63rem 1rem;
   border: 1px solid var(--hover);
@@ -187,6 +191,8 @@ input[type="submit"]:hover,
 .call-action a:hover,
 .hero-buttons span:hover,
 .product-card button:hover,
+.links-back a:hover,
+.text-center a:hover,
 .login-section button:hover {
   background-color: var(--hover);
   border-radius: 0;
@@ -371,4 +377,13 @@ input[type="submit"]:hover,
 .uploadthing {
   border-color: var(--hover);
   background-color: var(--accent);
+}
+
+.links-back {
+  width: 100%;
+}
+
+.links-back a {
+  width: 100%;
+  text-align: center;
 }
