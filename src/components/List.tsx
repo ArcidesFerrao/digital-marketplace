@@ -184,7 +184,7 @@ export const ListCard = ({
         priority={false}
       />
       <div className="flex flex-col gap-2">
-        <Link href={`/product/${id}`}>
+        <Link href={`/products/${id}`}>
           <h3 className="text-lg font-medium">{title}</h3>
         </Link>
 
@@ -193,7 +193,7 @@ export const ListCard = ({
           <p>{category}</p>
           <p>{new Date(createdAt).toLocaleDateString()}</p>
         </div>
-        <button>Buy Now</button>
+        {/* <button>Buy Now</button> */}
       </div>
     </div>
   );

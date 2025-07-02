@@ -26,8 +26,8 @@ export default async function TransactionPage({
   return (
     <main className="transaction-page flex flex-col items-center gap-4 p-16 ">
       <section className="header-transaction text-center flex flex-col gap-2">
-        <h2 className="text-4xl font-bold">Compra concluida com sucesso!</h2>
-        <p>O seu ficheiro esta pronto para ser descarregado</p>
+        <h2 className="text-4xl font-bold">Congratulations!</h2>
+        <p>The file is ready to be downloaded. Click on the button bellow</p>
       </section>
       <section className="p-5">
         <Image
@@ -39,10 +39,10 @@ export default async function TransactionPage({
         ></Image>
       </section>
       <section className="details-transaction  flex flex-col gap-4 ">
-        <h2 className="text-center text-xl font-medium py-4">
+        <h2 className="text-details text-xl font-medium py-4">
           <Link href={data?.product.fileUrl}>Download File</Link>
         </h2>
-        <h2 className="title-center text-xl font-medium ">
+        <h2 className="title-center text-lg font-medium ">
           {data.product.title}
         </h2>
         <div className="flex gap-10">
