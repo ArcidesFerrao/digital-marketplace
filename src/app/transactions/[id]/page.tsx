@@ -36,6 +36,7 @@ export default async function TransactionPage({
           width={300}
           height={300}
           alt="product-image"
+          unoptimized
         ></Image>
       </section>
       <section className="details-transaction  flex flex-col gap-4 ">

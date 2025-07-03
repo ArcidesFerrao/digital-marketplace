@@ -5,6 +5,8 @@ import React from "react";
 export default async function ReportPage() {
   const data = await getTransactions();
 
+  if (!data) return <main>Transactions not found</main>;
+
   return (
     <main className="admin-section p-20 flex flex-col gap-10">
       <AdminHeader />
@@ -25,10 +27,10 @@ export default async function ReportPage() {
             {data.length > 0 ? (
               data.map((item) => (
                 <tr key={item.id}>
-                  <td>{`{item.title}`}</td>
-                  <td>{item.sellerId}</td>
+                  <td>{item.product.title}</td>
+                  <td>{item.seller.name}</td>
                   <td>MZN {item.amount}.00</td>
-                  <td>{item.buyerId}</td>
+                  <td>{item.buyer.name}</td>
                 </tr>
               ))
             ) : (
