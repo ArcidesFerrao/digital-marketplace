@@ -75,7 +75,7 @@ input[type="submit"] {
 }
 
 footer,
-nav {
+.navigator {
   border: 1px solid var(--hover);
   background-color: var(--accent);
   border-radius: 0.2rem;
@@ -83,7 +83,7 @@ nav {
 }
 
 footer:hover,
-nav:hover {
+.navigator:hover {
   /* border-width: 2px; */
   /* border: 1px solid var(--hover); */
   /* background-color: var(--accent); */
@@ -91,7 +91,7 @@ nav:hover {
   box-shadow: 6px 8px 0 var(--shadow);
 }
 
-nav,
+.navigator,
 footer,
 main {
   max-width: 800px;
@@ -386,4 +386,9 @@ input[type="submit"]:hover,
 .links-back a {
   width: 100%;
   text-align: center;
+}
+
+.dashboard-table {
+  border: solid 2px #1c1c1c;
+  border-radius: 1rem;
 }
