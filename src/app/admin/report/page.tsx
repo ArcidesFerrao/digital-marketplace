@@ -1,5 +1,6 @@
 import { AdminHeader } from "@/components/AdminHeader";
-import getTransactions from "@/lib/getTransactions";
+import { getTransactions } from "@/lib/getTransactions";
+import Link from "next/link";
 import React from "react";
 
 export default async function ReportPage() {
@@ -27,7 +28,11 @@ export default async function ReportPage() {
             {data.length > 0 ? (
               data.map((item) => (
                 <tr key={item.id}>
-                  <td>{item.product.title}</td>
+                  <td>
+                    <Link href={`/transactions/${item.id}`}>
+                      {item.product.title}
+                    </Link>
+                  </td>
                   <td>{item.seller.name}</td>
                   <td>MZN {item.amount}.00</td>
                   <td>{item.buyer.name}</td>

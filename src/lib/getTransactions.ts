@@ -1,14 +1,24 @@
 import db from '@/db/db'
 
-export default function getTransactions() {
+export async function getTransactions() {
   return (
-    db.transaction.findMany({
+    await db.transaction.findMany({
         include: {
             buyer: true,
             product: true,
             seller: true,
             
         }
+    })
+  )
+}
+
+export async function getTotalAmount() {
+  return (
+    await db.transaction.aggregate({
+      _sum: {
+        amount: true,
+      }
     })
   )
 }
