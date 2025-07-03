@@ -40,21 +40,30 @@ export default function DashboardClient({ seller }: DashboardClientProps) {
 }
 
 const DashboardOverview = ({ seller }: { seller: Seller }) => {
+  const totalSales = seller.transactionsSold.length;
+
+  const revenue = seller.transactionsSold.reduce(
+    (sum, tx) => sum + tx.amount,
+    0
+  );
+
+  const activeListings = seller.products.filter((p) => p.isApproved).length;
+
   return (
     <section className="main-dash w-full flex flex-col gap-5 px-5">
       <h1 className="text-4xl font-medium">Seller Dashboard</h1>
       <div className="sales-info flex justify-between">
         <div className="dash-card flex flex-col gap-2 p-5">
           <h3>Total Sales</h3>
-          <h2 className="text-2xl font-bold">1325</h2>
+          <h2 className="text-2xl font-bold">{totalSales}</h2>
         </div>
         <div className="dash-card flex flex-col gap-2 p-5">
           <h3>Revenue</h3>
-          <h2 className="text-2xl font-bold">MZN 1300.00</h2>
+          <h2 className="text-2xl font-bold">MZN {revenue}.00</h2>
         </div>
         <div className="dash-card flex flex-col gap-2 p-5">
           <h3>Active Listings</h3>
-          <h2 className="text-2xl font-bold">27</h2>
+          <h2 className="text-2xl font-bold">{activeListings}</h2>
         </div>
       </div>
       <div className="sales-details flex flex-col gap-4">
@@ -72,12 +81,15 @@ const DashboardOverview = ({ seller }: { seller: Seller }) => {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>Digital Art</td>
-                <td>MZN 550.00</td>
-                <td>43</td>
-                <td>Edit</td>
-              </tr>
+              {seller.products &&
+                seller.products.map((item) => (
+                  <tr key={item.id}>
+                    <td>{item.title}</td>
+                    <td>MZN {item.price}.00</td>
+                    <td>{item.Transaction.length || 0}</td>
+                    <td>Edit</td>
+                  </tr>
+                ))}
             </tbody>
           </table>
         </div>

@@ -4,7 +4,7 @@
   --background: #45474f;
   --foreground: #f4f5fa;
   --text: #f4f5fa;
-  --shadow: rgba(244, 245, 250, 0.1);
+  --shadow: hsla(230, 37%, 97%, 0.1);
   --hover: #1c1c1c;
   --accent: #303b2b4b;
   --placeholder: #f4f5fa;
@@ -390,11 +390,11 @@ input[type="submit"]:hover,
 }
 
 .dashboard-table table thead tr {
-  background-color: var(--hover);
+  background-color: var(--shadow);
 }
 .dashboard-table {
   border-radius: 1rem;
-  border: solid 1px #1c1c1c;
+  border: solid 1px var(--shadow);
 }
 
 .dash-nav button {
@@ -404,6 +404,6 @@ input[type="submit"]:hover,
 }
 
 .dash-card {
-  background-color: var(--hover);
+  background-color: var(--shadow);
   border-radius: 0.4rem;
 }

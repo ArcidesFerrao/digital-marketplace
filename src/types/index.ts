@@ -9,8 +9,12 @@ export type Product = {
   isApproved: boolean;
   sellerId: string;
   createdAt: Date;
-  
+  Transaction: { id: string }[]
 };
+
+export type Transaction = {
+  amount: number;
+}
 
 export type Seller = {
   id: string;
@@ -19,5 +23,6 @@ export type Seller = {
   password: string;
   isPremium: boolean;
   balance: number;
-  products?: Product[];
+  products: Product[];
+  transactionsSold: Transaction[];
 };

@@ -8,7 +8,12 @@ export async function getSeller(id: string) {
             id,
         },
         include: {
-            products: true,
+            products: {
+                include: {
+                    Transaction: true,
+                }
+            },
+            transactionsSold: true,
         }
     })
 
