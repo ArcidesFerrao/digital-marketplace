@@ -11,15 +11,27 @@ export default function DashboardClient({ seller }: DashboardClientProps) {
   const [activeSection, setActiveSection] = useState("dashboard");
 
   return (
-    <main className="flex gap-10">
-      <section className="dash-nav">
+    <main className="seller-page flex gap-10 py-5">
+      <section className="dash-nav w-fit">
         <nav className="flex flex-col">
-          <button onClick={() => setActiveSection("dashboard")}>
-            Dashboard
-          </button>
-          <button>Products</button>
-          <button>Sales History</button>
-          <button>Account Settings</button>
+          <div className="flex items-center px-5">
+            <span className="iconamoon--home"></span>
+            <button onClick={() => setActiveSection("dashboard")}>
+              Dashboard
+            </button>
+          </div>
+          <div className="flex items-center px-5">
+            <span className="iconamoon--box-light"></span>
+            <button>Products</button>
+          </div>
+          <div className="flex items-center px-5">
+            <span className="iconamoon--clock-light"></span>
+            <button>Sales History</button>
+          </div>
+          <div className="flex items-center px-5">
+            <span className="iconamoon--settings-light"></span>
+            <button>Account Settings</button>
+          </div>
         </nav>
       </section>
       {activeSection === "dashboard" && <DashboardOverview seller={seller} />}
@@ -29,7 +41,7 @@ export default function DashboardClient({ seller }: DashboardClientProps) {
 
 const DashboardOverview = ({ seller }: { seller: Seller }) => {
   return (
-    <section className="main-dash flex flex-col gap-5">
+    <section className="main-dash w-full flex flex-col gap-5 px-5">
       <h1 className="text-4xl font-medium">Seller Dashboard</h1>
       <div className="sales-info flex justify-between">
         <div className="dash-card flex flex-col gap-2 p-5">
@@ -49,24 +61,26 @@ const DashboardOverview = ({ seller }: { seller: Seller }) => {
         <h3 className="text-xl font-bold">
           {seller?.name || " "}&apos;s Products
         </h3>
-        <table className="dashboard-table rounded-lg w-full">
-          <thead>
-            <tr>
-              <th>Title</th>
-              <th>Price</th>
-              <th>Sales</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Digital Art</td>
-              <td>MZN 550.00</td>
-              <td>43</td>
-              <td>Edit</td>
-            </tr>
-          </tbody>
-        </table>
+        <div className="dashboard-table overflow-x-auto rounded-lg">
+          <table className=" w-full">
+            <thead>
+              <tr>
+                <th>Title</th>
+                <th>Price</th>
+                <th>Sales</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Digital Art</td>
+                <td>MZN 550.00</td>
+                <td>43</td>
+                <td>Edit</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </section>
   );

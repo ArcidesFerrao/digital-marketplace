@@ -293,6 +293,7 @@ input[type="submit"]:hover,
   max-width: 240px;
 }
 
+.seller-page,
 .about-page {
   border: var(--hover) solid 1px;
   border-radius: 0.2rem;
@@ -388,7 +389,21 @@ input[type="submit"]:hover,
   text-align: center;
 }
 
+.dashboard-table table thead tr {
+  background-color: var(--hover);
+}
 .dashboard-table {
-  border: solid 2px #1c1c1c;
   border-radius: 1rem;
+  border: solid 1px #1c1c1c;
+}
+
+.dash-nav button {
+  background: none;
+  border: none;
+  min-width: max-content;
+}
+
+.dash-card {
+  background-color: var(--hover);
+  border-radius: 0.4rem;
 }
