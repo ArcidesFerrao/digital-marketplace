@@ -1,4 +1,4 @@
-import { getSeller } from "@/lib/getSeller";
+import { getSales, getSeller } from "@/lib/getSeller";
 import React from "react";
 import DashboardClient from "./DashboardClient";
 // import { Seller } from "@/types";
@@ -11,6 +11,14 @@ export default async function DashboardPage() {
   const seller = await getSeller(id);
 
   if (!seller) return <main>Seller not found</main>;
+  const sales = await getSales(id);
 
-  return <DashboardClient seller={seller} />;
+  if (!sales) return <main>Sales not found</main>;
+  return (
+    <DashboardClient
+      seller={seller}
+      sales={sales.transactions}
+      totalAmount={sales.totalAmount}
+    />
+  );
 }

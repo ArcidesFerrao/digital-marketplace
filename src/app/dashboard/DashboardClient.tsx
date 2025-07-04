@@ -1,13 +1,19 @@
 "use client";
 
 import React, { useState } from "react";
-import { Seller } from "@/types";
+import { Seller, Transaction } from "@/types";
 
 interface DashboardClientProps {
   seller: Seller;
+  sales: Transaction[];
+  totalAmount: number;
 }
 
-export default function DashboardClient({ seller }: DashboardClientProps) {
+export default function DashboardClient({
+  seller,
+  sales,
+  totalAmount,
+}: DashboardClientProps) {
   const [activeSection, setActiveSection] = useState("dashboard");
 
   return (
@@ -26,7 +32,9 @@ export default function DashboardClient({ seller }: DashboardClientProps) {
           </div>
           <div className="flex items-center px-5">
             <span className="iconamoon--clock-light"></span>
-            <button>Sales History</button>
+            <button onClick={() => setActiveSection("sales")}>
+              Sales History
+            </button>
           </div>
           <div className="flex items-center px-5">
             <span className="iconamoon--settings-light"></span>
@@ -35,6 +43,9 @@ export default function DashboardClient({ seller }: DashboardClientProps) {
         </nav>
       </section>
       {activeSection === "dashboard" && <DashboardOverview seller={seller} />}
+      {activeSection === "sales" && (
+        <SalesHistory sales={sales} totalAmount={totalAmount} />
+      )}
     </main>
   );
 }
@@ -86,10 +97,58 @@ const DashboardOverview = ({ seller }: { seller: Seller }) => {
                   <tr key={item.id}>
                     <td>{item.title}</td>
                     <td>MZN {item.price}.00</td>
-                    <td>{item.Transaction.length || 0}</td>
+                    <td>{item.Transaction?.length || 0}</td>
                     <td>Edit</td>
                   </tr>
                 ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const SalesHistory = ({
+  sales,
+  totalAmount,
+}: {
+  sales: Transaction[];
+  totalAmount: number;
+}) => {
+  const totalSales = sales.reduce((sum, tx) => sum + tx.amount, 0);
+
+  return (
+    <section className="main-dash w-full flex flex-col gap-5 px-5">
+      <h1 className="text-4xl font-medium">Sales History</h1>
+      <div className="sales-info flex gap-5">
+        <div className="dash-card flex flex-col gap-2 p-5">
+          <h3>Total Sales</h3>
+          <h2 className="text-2xl font-bold">{totalAmount}</h2>
+        </div>
+        <div className="dash-card flex flex-col gap-2 p-5">
+          <h3>Revenue</h3>
+          <h2 className="text-2xl font-bold">MZN {totalSales}.00</h2>
+        </div>
+      </div>
+      <div className="sales-details flex flex-col gap-4">
+        <div className="dashboard-table overflow-x-auto rounded-lg">
+          <table className=" w-full">
+            <thead>
+              <tr>
+                <th>Title</th>
+                <th>Price</th>
+                <th>Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              {sales.map((item) => (
+                <tr key={item.id}>
+                  <td>{item.product.title}</td>
+                  <td>MZN {item.product.price}.00</td>
+                  <td>{item.createdAt.toLocaleDateString()}</td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>

@@ -1,5 +1,7 @@
 import db from "@/db/db";
 
+
+
 export async function getSeller(id: string) {
     if (!id) return null;
     console.log(id);
@@ -13,9 +15,34 @@ export async function getSeller(id: string) {
                     Transaction: true,
                 }
             },
-            transactionsSold: true,
+            transactionsSold: {
+                include: {
+                    product: true,
+                }
+            },
         }
     })
 
     
+}
+
+export async function getSales(id: string) {
+    if (!id) return null;
+
+    const transactions = await db.transaction.findMany({
+        where: {
+            sellerId: id,
+        },
+        include: {
+            product: true,
+},
+})   
+     
+    const totalAmount = transactions.reduce((sum, tx) => sum + tx.amount, 0)
+    
+   
+    return {
+        transactions,
+        totalAmount,
+    }
 }
