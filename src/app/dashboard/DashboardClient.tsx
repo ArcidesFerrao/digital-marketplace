@@ -116,19 +116,19 @@ const SalesHistory = ({
   sales: Transaction[];
   totalAmount: number;
 }) => {
-  const totalSales = sales.reduce((sum, tx) => sum + tx.amount, 0);
-
   return (
     <section className="main-dash w-full flex flex-col gap-5 px-5">
       <h1 className="text-4xl font-medium">Sales History</h1>
       <div className="sales-info flex gap-5">
         <div className="dash-card flex flex-col gap-2 p-5">
           <h3>Total Sales</h3>
-          <h2 className="text-2xl font-bold">{totalAmount}</h2>
+          <h2 className="text-2xl font-bold">{sales.length}</h2>
         </div>
         <div className="dash-card flex flex-col gap-2 p-5">
           <h3>Revenue</h3>
-          <h2 className="text-2xl font-bold">MZN {totalSales}.00</h2>
+          <h2 className="text-2xl font-bold">
+            MZN {totalAmount - totalAmount * 0.1}.00
+          </h2>
         </div>
       </div>
       <div className="sales-details flex flex-col gap-4">
