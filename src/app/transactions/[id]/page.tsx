@@ -16,7 +16,6 @@ export default async function TransactionPage({
     where: { id },
     include: {
       product: true,
-      buyer: true,
       seller: true,
     },
   });
