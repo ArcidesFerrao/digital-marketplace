@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { Seller, Transaction } from "@/types";
+import Link from "next/link";
 
 interface DashboardClientProps {
   seller: Seller;
@@ -144,7 +145,11 @@ const SalesHistory = ({
             <tbody>
               {sales.map((item) => (
                 <tr key={item.id}>
-                  <td>{item.product.title}</td>
+                  <td>
+                    <Link href={`/transactions/${item.id}`}>
+                      {item.product.title}
+                    </Link>
+                  </td>
                   <td>MZN {item.product.price}.00</td>
                   <td>{item.createdAt.toLocaleDateString()}</td>
                 </tr>

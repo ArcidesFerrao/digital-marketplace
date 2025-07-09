@@ -17,6 +17,7 @@ export default async function TransactionPage({
     include: {
       product: true,
       buyer: true,
+      seller: true,
     },
   });
 
@@ -51,12 +52,14 @@ export default async function TransactionPage({
             <h3>Type of file</h3>
             <h3>Price</h3>
             <h3>Date</h3>
+            <h3>Seller</h3>
             <h3>Transaction ID</h3>
           </div>
           <div className="detail  flex flex-col gap-2">
             <p>PDF</p>
             <p>MZN {data.amount}.00</p>
             <p>{data.createdAt.toLocaleDateString()}</p>
+            <p>{data.seller.name}</p>
             <p>{data.id}</p>
           </div>
         </div>
