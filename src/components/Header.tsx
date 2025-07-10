@@ -12,18 +12,25 @@ export const Header = () => {
         <Image src="/assets/logo.png" width={40} height={38} alt="Home" />
       </Link>
       {session?.user ? (
-        <span>
-          Welcome{" "}
-          <Link href={`/dashboard/`}> {session.user.name?.split(" ")[0]}</Link>!
-        </span>
-      ) : (
         <div className="flex gap-6 items-center">
           <Link href="/products/new">Sell</Link>
+          <span>
+            Welcome{" "}
+            <Link href={`/dashboard/`}>
+              {" "}
+              {session.user.name?.split(" ")[0]}
+            </Link>
+            !
+          </span>
+        </div>
+      ) : (
+        <div className="flex gap-6 items-center">
           <button className="login-button" onClick={() => signIn()}>
             Login
           </button>
-          {/* <Link href="/api/auth/signin">Login</Link> */}
-          <Link href="/signup">Join Free</Link>
+          <button className="login-button" onClick={() => signIn()}>
+            Join Free
+          </button>
         </div>
       )}
     </nav>

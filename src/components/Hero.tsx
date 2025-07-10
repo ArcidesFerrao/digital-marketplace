@@ -16,7 +16,7 @@ export const Hero = () => (
       <Link href="/products" className="btn">
         <span>Browse Products</span>
       </Link>
-      <Link href="/product/new" className="btn btn-outline">
+      <Link href="/products/new" className="btn btn-outline">
         <span>Start Selling...</span>
       </Link>
     </div>

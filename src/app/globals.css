@@ -407,3 +407,15 @@ input[type="submit"]:hover,
   background-color: var(--shadow);
   border-radius: 0.4rem;
 }
+
+.login-button {
+  border: none;
+  background: none;
+  padding: 0;
+}
+
+.login-button:hover {
+  background: none;
+  box-shadow: none;
+  text-decoration: underline;
+}
