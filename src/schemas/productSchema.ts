@@ -2,10 +2,10 @@ import { z } from "zod";
 
 
 export const productSchema = z.object({
-    title: z.string().min(2, "Nome muito curto!"),
-    description: z.string().min(10, "Seja mais especifico"),
-    category: z.string().min(3),
-    fileUrl: z.string().url(),
-    imageUrl: z.string().url(),
-    price: z.coerce.number().int().min(10),
+    title: z.string({ required_error: "Product name is required!" }).min(2, "Name is too short!"),
+    description: z.string().min(10, "Be more specific"),
+    category: z.string({ required_error: "Category is required!" }).min(3),
+    fileUrl: z.string({ required_error: "File URL is required!" }).url(),
+    imageUrl: z.string({ required_error: "Image URL is required!" }).url(),
+    price: z.coerce.number({ required_error: "Product price is required!" }).int().min(100, "Price is too low!" ),
 })
