@@ -22,7 +22,7 @@ const handler = NextAuth({
             if (user) {
                 session.user = {
                 ...session.user,
-                // id: user.id,
+                // id: token.sub,
                 name: user.name,
                 email: user.email,
                 image: user.image,

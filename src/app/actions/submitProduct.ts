@@ -3,6 +3,7 @@
 import db from "@/db/db";
 import { productSchema } from "@/schemas/productSchema";
 import { parseWithZod } from "@conform-to/zod";
+import { getServerSession } from "next-auth/next";
 
 
 
@@ -17,7 +18,31 @@ export async function submitProduct(prevState: unknown, formData: FormData) {
         }
     }
 
-    const {title, price, category, description, fileUrl, imageUrl } = submission.value;
+    const {title, price, category, description, fileUrl, imageUrl,  } = submission.value;
+
+    const session = await getServerSession();
+
+    const userEmail = session?.user?.email;
+    if (!userEmail) {
+        return {
+            status: "unauthorized",
+            error: "You have to be authenticated!"
+        }
+    }
+    const userData = await db.user.findFirst({
+        where: {
+            email: userEmail ,
+        }
+    })
+
+    const sellerId = userData?.id;
+
+    if (!sellerId) {
+        return {
+            status: "unauthorized",
+            error: "You have to be authenticated!"
+        }
+    }
 
     await db.product.create({
         data: {
@@ -27,7 +52,7 @@ export async function submitProduct(prevState: unknown, formData: FormData) {
             description,
             fileUrl,
             imageUrl,
-            sellerId: "e5f7efda-c836-485d-b8e1-0f5e7356c775",
+            sellerId,
             isApproved: false,
         },
         
