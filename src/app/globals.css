@@ -419,3 +419,14 @@ input[type="submit"]:hover,
   box-shadow: none;
   text-decoration: underline;
 }
+
+.approve-form button {
+  background: none;
+  padding: 0;
+}
+
+.approve-form button:hover {
+  background: none;
+  box-shadow: none;
+  border: none;
+}

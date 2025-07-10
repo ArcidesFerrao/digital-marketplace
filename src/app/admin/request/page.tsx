@@ -1,5 +1,5 @@
 import { AdminHeader } from "@/components/AdminHeader";
-import { ApproveForm } from "@/components/ApproveForm";
+import { ApproveForm, DeleteForm } from "@/components/ApproveForm";
 import { getProducts } from "@/lib/getProducts";
 import React from "react";
 
@@ -7,7 +7,7 @@ export default async function RequestsPage() {
   const products = await getProducts();
 
   return (
-    <main className="admin-section p-20 flex flex-col gap-10">
+    <main className="admin-section p-10 flex flex-col gap-10">
       <AdminHeader />
 
       <section className="flex flex-col gap-5">
@@ -34,7 +34,10 @@ export default async function RequestsPage() {
                   <td>MZN {item.price}.00</td>
                   <td>{item.seller.name}</td>
                   <td>
-                    <ApproveForm productId={item.id} />
+                    <div className="flex gap-2">
+                      <ApproveForm productId={item.id} />
+                      <DeleteForm productId={item.id} />
+                    </div>
                   </td>
                 </tr>
               ))
