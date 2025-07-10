@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { Seller, Transaction } from "@/types";
 import Link from "next/link";
+import { signOut } from "next-auth/react";
 
 interface DashboardClientProps {
   seller: Seller;
@@ -19,29 +20,38 @@ export default function DashboardClient({
 
   return (
     <main className="seller-page flex gap-10 py-5">
-      <section className="dash-nav w-fit">
+      <section className="dash-nav w-fit flex flex-col justify-between">
         <nav className="flex flex-col">
-          <div className="flex items-center px-5">
+          <button
+            className="flex items-center gap-5 px-5"
+            onClick={() => setActiveSection("dashboard")}
+          >
             <span className="iconamoon--home"></span>
-            <button onClick={() => setActiveSection("dashboard")}>
-              Dashboard
-            </button>
-          </div>
-          <div className="flex items-center px-5">
+            Dashboard
+          </button>
+          <button className="flex items-center gap-5 px-5">
             <span className="iconamoon--box-light"></span>
-            <button>Products</button>
-          </div>
-          <div className="flex items-center px-5">
+            Products
+          </button>
+          <button
+            className="flex items-center gap-5 px-5"
+            onClick={() => setActiveSection("sales")}
+          >
             <span className="iconamoon--clock-light"></span>
-            <button onClick={() => setActiveSection("sales")}>
-              Sales History
-            </button>
-          </div>
-          <div className="flex items-center px-5">
+            Sales History
+          </button>
+          <button className="flex items-center gap-5 px-5">
             <span className="iconamoon--settings-light"></span>
-            <button>Account Settings</button>
-          </div>
+            Account Settings
+          </button>
         </nav>
+        <button
+          onClick={() => signOut()}
+          className="signout flex justify-between items-center gap-5 px-5"
+        >
+          <div>Sign Out</div>
+          <span className="stashes--signout"></span>
+        </button>
       </section>
       {activeSection === "dashboard" && <DashboardOverview seller={seller} />}
       {activeSection === "sales" && (
