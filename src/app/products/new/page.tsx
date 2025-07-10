@@ -2,6 +2,7 @@
 
 import { ProductForm } from "@/components/ProductForm";
 import { signIn, useSession } from "next-auth/react";
+import Image from "next/image";
 import React from "react";
 
 export default function NewProductPage() {
@@ -10,7 +11,12 @@ export default function NewProductPage() {
   if (status === "loading") {
     return (
       <main className="flex justify-center items-center p-10">
-        <p>Loading...</p>
+        <Image
+          src="/assets/infinity.svg"
+          alt="Loading..."
+          width={50}
+          height={50}
+        />
       </main>
     );
   }
