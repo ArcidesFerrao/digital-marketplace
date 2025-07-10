@@ -18,11 +18,11 @@ const handler = NextAuth({
         strategy: "database",
     },
     callbacks: {
-        async session({ session, token, user}) {
+        async session({ session, token, user}){
             if (user) {
                 session.user = {
                 ...session.user,
-                id: user.id,
+                // id: user.id,
                 name: user.name,
                 email: user.email,
                 image: user.image,
@@ -30,7 +30,7 @@ const handler = NextAuth({
             } else if (token) {
                 session.user = {
                 ...session.user,
-                id: token.sub as string,
+                // id: token.sub as string,
                 name: token.name,
                 email: token.email
                 };
@@ -39,21 +39,20 @@ const handler = NextAuth({
         },
         async signIn({ user, account}) {
             if (account?.provider === "google" ) {
-                        const existingAccount = await db.account.findUnique({
+                    const existingAccount = await db.account.findUnique({
                             where: {
                                 provider_providerAccountId: {
                                     provider: account.provider,
                                     providerAccountId: account.providerAccountId,
                                 }
                             },
-                        });
-                        if (!existingAccount) {
+                    });
+                    if (!existingAccount) {
                             const existingUser = await db.user.findUnique({
                                 where: {
                                     email: user.email || "",
                                 }
                             })
-
                             if (existingUser) {
                                 await db.account.create({
                                     data: {
@@ -61,11 +60,10 @@ const handler = NextAuth({
                                         provider: account.provider,
                                         type: account.provider,
                                         providerAccountId: account.providerAccountId,
-
                                         access_token: account.access_token ?? null,
                                     },
                                 });
-                            } else {
+                        } else {
                                 if (user) {
                                     const newUser = await db.user.create({
                                         data: {
@@ -75,7 +73,6 @@ const handler = NextAuth({
                                             // password: user.password,
                                         }
                                     });
-
                                     await db.account.create({
                                         data: {
                                             userId: newUser.id,
@@ -83,15 +80,14 @@ const handler = NextAuth({
                                             providerAccountId: account.providerAccountId,
                                             access_token: account.access_token,
                                             type: account.type,
-                                        }
-                                    })
                                 }
-                            }
-                        } 
+                            })
+                        }
                     }
-                    return true;
+                } 
+            }
+            return true;
         },
-
     },
     }
 );
