@@ -26,7 +26,7 @@ export type Seller = {
   id: string;
   name: string;
   email: string;
-  password: string;
+  password: string | null;
   isPremium: boolean;
   balance: number;
   products: Product[];
