@@ -26,23 +26,23 @@ export async function submitProduct(prevState: unknown, formData: FormData) {
     if (!userEmail) {
         return {
             status: "unauthorized",
-            error: "You have to be authenticated!"
+            error: "You have to be authenticated!",
         }
     }
+   
     const userData = await db.user.findFirst({
         where: {
             email: userEmail ,
         }
     })
-
-    const sellerId = userData?.id;
-
-    if (!sellerId) {
+    if (!userData) {
         return {
             status: "unauthorized",
             error: "You have to be authenticated!"
         }
     }
+
+    
 
     await db.product.create({
         data: {
@@ -52,7 +52,7 @@ export async function submitProduct(prevState: unknown, formData: FormData) {
             description,
             fileUrl,
             imageUrl,
-            sellerId,
+            sellerId: userData.id,
             isApproved: false,
         },
         

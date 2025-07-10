@@ -1,12 +1,10 @@
-
+import db from "@/db/db";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
-import { PrismaClient } from "@prisma/client";
-import NextAuth from "next-auth/next";
+import { AuthOptions } from "next-auth/next";
 import Google from "next-auth/providers/google";
 
-const db = new PrismaClient;
 
-const handler = NextAuth({
+export const authOptions = {
     providers: [
         Google({
             clientId: process.env.AUTH_GOOGLE_ID!,
@@ -90,8 +88,4 @@ const handler = NextAuth({
             return true;
         },
     },
-    }
-);
-
-export const GET = handler;
-export const POST = handler;
+    } satisfies AuthOptions;

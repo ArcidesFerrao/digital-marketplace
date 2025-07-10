@@ -33,6 +33,14 @@ export const ProductForm = () => {
           color: "var(--accent)",
         },
       });
+    } else if (state?.status === "unauthorized" && state.error) {
+      toast.error(state.error.toString(), {
+        style: {
+          border: "1px solid var(--hover)",
+          padding: "1rem",
+          color: "var(--accent)",
+        },
+      });
     }
   }, [state]);
 
