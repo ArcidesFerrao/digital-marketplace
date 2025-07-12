@@ -1,11 +1,10 @@
 "use server"
 
 import db from "@/db/db";
+import  {authOptions}  from "@/lib/auth";
 import { productSchema } from "@/schemas/productSchema";
 import { parseWithZod } from "@conform-to/zod";
 import { getServerSession } from "next-auth/next";
-
-
 
 
 export async function submitProduct(prevState: unknown, formData: FormData) {
@@ -20,7 +19,7 @@ export async function submitProduct(prevState: unknown, formData: FormData) {
 
     const {title, price, category, description, fileUrl, imageUrl,  } = submission.value;
 
-    const session = await getServerSession();
+    const session = await getServerSession(authOptions as any);
 
     const userEmail = session?.user?.email;
     if (!userEmail) {
@@ -60,6 +59,6 @@ export async function submitProduct(prevState: unknown, formData: FormData) {
 
     return {
         status: "success",
-        message: "Produto submetido com sucesso!"
+        message: "Product successfully submited!"
     }
 }

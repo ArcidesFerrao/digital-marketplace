@@ -4,7 +4,7 @@ import { PrismaClient } from "@prisma/client";
 import NextAuth from "next-auth/next";
 import Google from "next-auth/providers/google";
 
-const db = new PrismaClient;
+export const db = new PrismaClient;
 
 const handler = NextAuth({
     providers: [
