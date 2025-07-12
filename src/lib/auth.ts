@@ -1,9 +1,10 @@
 import db from "@/db/db";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
-import { Session, User } from "next-auth";
+import type { NextAuthOptions ,Session, User } from "next-auth";
+// import NextAuth from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 
-export const authOptions = {
+export const authOptions: NextAuthOptions = {
     providers: [
         GoogleProvider({
             clientId: process.env.AUTH_GOOGLE_ID!,
@@ -19,7 +20,6 @@ export const authOptions = {
         async session({ session,  user}: {session: Session; user: User}){
                 session.user = {
                 ...session.user,
-                // id: token.sub,
                 name: user.name,
                 email: user.email,
                 image: user.image,
@@ -28,3 +28,5 @@ export const authOptions = {
         },
     },
 } 
+
+// export default NextAuth(authOptions);
