@@ -18,14 +18,8 @@ export default async function ProductPage({
     where: {
       id,
     },
-    select: {
-      title: true,
-      price: true,
-      description: true,
-      category: true,
-      createdAt: true,
+    include: {
       seller: true,
-      imageUrl: true,
     },
   });
 
