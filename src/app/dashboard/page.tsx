@@ -3,7 +3,6 @@ import React from "react";
 import DashboardClient from "./DashboardClient";
 import { getServerSession } from "next-auth/next";
 import { authOptions } from "@/lib/auth";
-// import { Seller } from "@/types";
 
 export default async function DashboardPage() {
   // const id = "e5f7efda-c836-485d-b8e1-0f5e7356c775";

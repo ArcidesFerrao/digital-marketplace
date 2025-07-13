@@ -14,6 +14,7 @@ interface productProps {
 interface listProps {
   id: string;
   title: string;
+  imageUrl: string;
   category: string;
   price: number;
   createdAt: Date;
@@ -48,6 +49,7 @@ export const List = async () => {
     select: {
       id: true,
       title: true,
+      imageUrl: true,
       price: true,
       category: true,
       createdAt: true,
@@ -76,6 +78,7 @@ export const List = async () => {
             id={item.id}
             title={item.title}
             price={item.price}
+            imageUrl={item.imageUrl}
             category={item.category}
             createdAt={item.createdAt}
           />
@@ -171,17 +174,18 @@ export const ListCard = ({
   id,
   title,
   price,
+  imageUrl,
   category,
   createdAt,
 }: listProps) => {
   return (
     <div className="product-card flex flex-col gap-2">
       <Image
-        src="/assets/Beginner-Freelancer-2.png"
-        alt="contracts template"
+        src={imageUrl}
+        alt={title}
         width={200}
         height={200}
-        priority={false}
+        // priority={false}
       />
       <div className="flex flex-col gap-2">
         <Link href={`/products/${id}`}>
