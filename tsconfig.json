@@ -23,6 +23,7 @@
         "name": "next"
       }
     ],
+    "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
       "next-auth/core/types": ["node_modules/next-auth/core/types.d.ts"]
