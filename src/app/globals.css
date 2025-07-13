@@ -337,7 +337,7 @@ input[type="submit"]:hover,
   color: var(--background);
   padding: 2rem;
   display: flex;
-  align-items: center;
+  /* align-items: center; */
   justify-content: space-around;
   border-radius: 0.2rem;
   h1 {
