@@ -1,10 +1,11 @@
 import db from "@/db/db";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
-import type { NextAuthOptions ,Session, User } from "next-auth";
+import type { AuthOptions } from "next-auth/core/types";
+
 // import NextAuth from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 
-export const authOptions: NextAuthOptions = {
+export const authOptions: AuthOptions = {
     providers: [
         GoogleProvider({
             clientId: process.env.AUTH_GOOGLE_ID!,
@@ -17,7 +18,7 @@ export const authOptions: NextAuthOptions = {
         maxAge: 24 * 60 * 60, 
     },
     callbacks: {
-        async session({ session,  user}: {session: Session; user: User}){
+        async session({ session,  user}){
                 session.user = {
                 ...session.user,
                 name: user.name,

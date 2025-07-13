@@ -19,7 +19,7 @@ export async function submitProduct(prevState: unknown, formData: FormData) {
 
     const {title, price, category, description, fileUrl, imageUrl,  } = submission.value;
 
-    const session = await getServerSession(authOptions as any);
+    const session = await getServerSession(authOptions);
 
     const userEmail = session?.user?.email;
     if (!userEmail) {
