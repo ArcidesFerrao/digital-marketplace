@@ -2,12 +2,12 @@ import db from "@/db/db";
 
 
 
-export async function getSeller(id: string) {
-    if (!id) return null;
-    console.log(id);
+export async function getSeller(email: string) {
+    if (!email) return null;
+    console.log(email);
     return await db.user.findUnique({
         where: {
-            id,
+            email,
         },
         include: {
             products: {
@@ -26,12 +26,14 @@ export async function getSeller(id: string) {
     
 }
 
-export async function getSales(id: string) {
-    if (!id) return null;
+export async function getSales(email: string) {
+    if (!email) return null;
 
     const transactions = await db.transaction.findMany({
         where: {
-            sellerId: id,
+            seller: {
+                email
+            }
         },
         include: {
             product: true,
