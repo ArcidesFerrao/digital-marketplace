@@ -1,3 +1,6 @@
+"use client";
+
+import { signIn } from "next-auth/react";
 import Link from "next/link";
 import React from "react";
 
@@ -6,7 +9,7 @@ export default function SignUpPage() {
     <main className="signup-section flex flex-col justify-center gap-6 p-10">
       <section className="flex flex-col gap-5">
         <h2 className="text-4xl font-medium">Create an Account</h2>
-        <button>Sign up with Google</button>
+        <button onClick={() => signIn()}>Sign up with Google</button>
       </section>
       <section className="flex flex-col gap-8">
         <input type="text" name="name" id="name" placeholder="Name" />

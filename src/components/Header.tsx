@@ -24,7 +24,7 @@ export const Header = () => {
             <div className="flex gap-6 items-center">
               <Link href="/products/new">Sell</Link>
               <span>
-                Welcome{" "}
+                Welcome back,{" "}
                 <Link href={`/dashboard/`}>
                   {" "}
                   {session.user.name?.split(" ")[0]}

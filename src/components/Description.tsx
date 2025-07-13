@@ -1,8 +1,13 @@
+"use client";
+
+import { useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
 export const Description = () => {
+  const { data: session, status } = useSession();
+
   return (
     <section className="description-section flex flex-row-reverse items-center justify-around px-10 py-10 w-full">
       <div className="reason flex flex-col gap-4">
@@ -45,9 +50,26 @@ export const Description = () => {
         <h3 className="text-2xl font-light">
           &quot;Ready to sell your first product?&quot;
         </h3>
-        <Link href="/signup" className="w-fit">
-          Join Free
-        </Link>
+        {status === "loading" ? (
+          <Image
+            alt="spinner"
+            src="/assets/infinity.svg"
+            width={50}
+            height={50}
+          />
+        ) : (
+          <div className="py-4">
+            {session?.user ? (
+              <Link href="/products/new" className="w-fit">
+                Start Selling
+              </Link>
+            ) : (
+              <Link href="/signup" className="w-fit">
+                Join Free
+              </Link>
+            )}
+          </div>
+        )}
       </div>
     </section>
   );
