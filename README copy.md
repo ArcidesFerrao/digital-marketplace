@@ -2,7 +2,7 @@
 
 **Innovante Digital Marketplace** is a modern platform for discovering, buying, and selling digital products like templates, tools, and learning resources. Built with **Next.js**, **Prisma**, and **TypeScript**, it's designed for speed, scalability, and great developer experience.
 
-> 🔗 Live Demo: [https://digital-marketplace-one.vercel.app/](https://digital-marketplace-one.vercel.app/)
+> 🔗 Live Demo: [https://your-vercel-url.com](https://your-vercel-url.com)
 
 ---
 
@@ -25,7 +25,7 @@
 - **Language**: TypeScript
 - **Database**: PostgreSQL via Prisma
 - **Auth**: NextAuth.js
-- **Storage**: UploadThing
+- **Storage**: UploadThing or similar (coming soon)
 - **Styling**: Tailwind CSS
 - **Deployment**: Vercel
 - **ORM**: Prisma
@@ -36,7 +36,7 @@
 ## 🛠 Getting Started Locally
 
 ```bash
-git clone https://github.com/ArcidesFerrao/digital-marketplace.git
+git clone https://github.com/yourusername/digital-marketplace.git
 cd digital-marketplace
 npm install
 ```
@@ -79,9 +79,11 @@ npm run build
 
 ---
 
-<!-- ## 🧑‍💻 Contributing
+## 🧑‍💻 Contributing
 
-Pull requests are welcome! If you'd like to suggest a feature or report a bug, feel free to open an issue. -->
+Pull requests are welcome! If you'd like to suggest a feature or report a bug, feel free to open an issue.
+
+---
 
 ## 📄 License
 
