@@ -15,8 +15,8 @@ export const Header = () => {
         <Image
           src="/assets/infinity.svg"
           alt="Loading..."
-          width={40}
-          height={40}
+          width={32}
+          height={32}
         />
       ) : (
         <div>
