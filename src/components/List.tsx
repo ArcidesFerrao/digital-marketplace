@@ -21,30 +21,6 @@ interface listProps {
 }
 
 export const List = async () => {
-  // const products = [
-  //   {
-  //     id: 1,
-  //     title: "Freelancer Contract + Proposal Templates",
-  //     image: "/assets/contracts.png",
-  //     width: 200,
-  //     price: "MZN 500.00",
-  //   },
-  //   {
-  //     id: 2,
-  //     title: "Why Next.js is the Future of Web Development",
-  //     image: "/assets/nextjs.png",
-  //     width: 200,
-  //     price: "MZN 300.00",
-  //   },
-  //   {
-  //     id: 3,
-  //     title: "How to Get Clients as a Beginner Freelancer",
-  //     image: "/assets/Beginner-Freelancer-2.png",
-  //     width: 200,
-  //     price: "MZN 600.00",
-  //   },
-  // ];
-
   const productList = await db.product.findMany({
     select: {
       id: true,
@@ -197,7 +173,6 @@ export const ListCard = ({
           <p>{category}</p>
           <p>{new Date(createdAt).toLocaleDateString()}</p>
         </div>
-        {/* <button>Buy Now</button> */}
       </div>
     </div>
   );

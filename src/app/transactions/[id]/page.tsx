@@ -39,10 +39,10 @@ export default async function TransactionPage({
           unoptimized
         ></Image>
       </section>
-      <section className="details-transaction  flex flex-col gap-4 ">
-        <h2 className="text-details text-xl font-medium py-4">
-          <Link href={data?.product.fileUrl}>Download File</Link>
-        </h2>
+      <h2 className="text-details text-xl font-medium">
+        <Link href={data?.product.fileUrl}>Download File</Link>
+      </h2>
+      <section className="details-transaction  flex flex-col gap-4 py-2 ">
         <h2 className="title-center text-lg font-medium ">
           {data.product.title}
         </h2>

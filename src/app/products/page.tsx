@@ -53,6 +53,19 @@ export default async function ProductsPage() {
       <h2 className="text-4xl font-medium">Explore our products...</h2>
       <section className="flex flex-col gap-y-5">
         <div className="list-items grid grid-cols-3 gap-y-5 w-full">
+          {data.map((item) => (
+            <ListCard
+              key={item.id}
+              title={item.title}
+              category={item.category}
+              imageUrl={item.imageUrl}
+              price={item.price}
+              id={item.id}
+              createdAt={item.createdAt}
+            />
+          ))}
+        </div>
+        <div className="list-items grid grid-cols-3 gap-y-5 w-full">
           {products.map((item) => (
             <ProductCard
               key={item.id}
@@ -60,18 +73,6 @@ export default async function ProductsPage() {
               image={item.image}
               width={item.width}
               price={item.price}
-            />
-          ))}
-        </div>
-        <div className="list-items grid grid-cols-3 gap-y-5 w-full">
-          {data.map((item) => (
-            <ListCard
-              key={item.id}
-              title={item.title}
-              category={item.category}
-              price={item.price}
-              id={item.id}
-              createdAt={item.createdAt}
             />
           ))}
         </div>

@@ -29,7 +29,10 @@ export default function DashboardClient({
             <span className="iconamoon--home"></span>
             Dashboard
           </button>
-          <button className="flex items-center gap-5 px-5">
+          <button
+            className="flex items-center gap-5 px-5"
+            onClick={() => setActiveSection("products")}
+          >
             <span className="iconamoon--box-light"></span>
             Products
           </button>
@@ -54,6 +57,9 @@ export default function DashboardClient({
         </button>
       </section>
       {activeSection === "dashboard" && <DashboardOverview seller={seller} />}
+      {activeSection === "products" && (
+        <ProductsList sales={sales} seller={seller} />
+      )}
       {activeSection === "sales" && (
         <SalesHistory sales={sales} totalAmount={totalAmount} />
       )}
@@ -81,7 +87,9 @@ const DashboardOverview = ({ seller }: { seller: Seller }) => {
         </div>
         <div className="dash-card flex flex-col gap-2 p-5">
           <h3>Revenue</h3>
-          <h2 className="text-2xl font-bold">MZN {revenue}.00</h2>
+          <h2 className="text-2xl font-bold">
+            MZN {revenue - revenue * 0.1}.00
+          </h2>
         </div>
         <div className="dash-card flex flex-col gap-2 p-5">
           <h3>Active Listings</h3>
@@ -148,7 +156,7 @@ const SalesHistory = ({
             <thead>
               <tr>
                 <th>Title</th>
-                <th>Price</th>
+                <th>Price Paid</th>
                 <th>Date</th>
               </tr>
             </thead>
@@ -162,6 +170,54 @@ const SalesHistory = ({
                   </td>
                   <td>MZN {item.product.price}.00</td>
                   <td>{item.createdAt.toLocaleDateString()}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const ProductsList = ({
+  seller,
+  sales,
+}: {
+  seller: Seller;
+  sales: Transaction[];
+}) => {
+  return (
+    <section className="main-dash w-full flex flex-col gap-5 px-5">
+      <h1 className="text-4xl font-medium">Sales History</h1>
+      <div className="sales-info flex gap-5">
+        <div className="dash-card flex flex-col gap-2 p-5">
+          <h3>Active Products</h3>
+          <h2 className="text-2xl font-bold">{seller.products.length}</h2>
+        </div>
+        <div className="dash-card flex flex-col gap-2 p-5">
+          <h3>Total Sales</h3>
+          <h2 className="text-2xl font-bold">{sales.length}</h2>
+        </div>
+      </div>
+      <div className="sales-details flex flex-col gap-4">
+        <div className="dashboard-table overflow-x-auto rounded-lg">
+          <table className=" w-full">
+            <thead>
+              <tr>
+                <th>Title</th>
+                <th>Price</th>
+                <th>Sales</th>
+              </tr>
+            </thead>
+            <tbody>
+              {seller.products.map((item) => (
+                <tr key={item.id}>
+                  <td>
+                    <Link href={`/transactions/${item.id}`}>{item.title}</Link>
+                  </td>
+                  <td>MZN {item.price}.00</td>
+                  <td></td>
                 </tr>
               ))}
             </tbody>
