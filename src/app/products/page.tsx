@@ -1,9 +1,29 @@
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
 import React from "react";
 import { ListCard, ProductCard } from "../../components/List";
 import { getApprovedProducts } from "@/lib/getProducts";
+import Link from "next/link";
 
-export default async function ProductsPage() {
-  const data = await getApprovedProducts();
+type Props = {
+  searchParams?: Record<string, string | string[]>;
+};
+
+export default async function ProductsPage({ searchParams = {} }: Props) {
+  const categoryRaw = searchParams["category"];
+  const sortRaw = searchParams["sort"];
+
+  const category = Array.isArray(categoryRaw) ? categoryRaw[0] : categoryRaw;
+
+  const sort =
+    sortRaw === "asc"
+      ? "asc"
+      : typeof sortRaw === "string" && sortRaw.toLowerCase() === "asc"
+      ? "asc"
+      : "desc";
+
+  const data = await getApprovedProducts({ category, sort });
+
   const products = [
     {
       id: 1,
@@ -49,8 +69,16 @@ export default async function ProductsPage() {
     },
   ];
   return (
-    <main className="flex flex-col gap-10 p-5">
+    <main className="flex flex-col gap-5 p-5">
       <h2 className="text-4xl font-medium">Explore our products...</h2>
+      <section className="filter-products flex gap-4 p-2">
+        <p>Filter:</p>
+        <Link href="/products?sort=desc">Newest</Link>
+        <Link href="/products?sort=asc">Oldest</Link>
+        <Link href="/products?category=ebook">eBook</Link>
+        <Link href="/products?category=template">Template</Link>
+        <Link href="/products">Clear</Link>
+      </section>
       <section className="flex flex-col gap-y-5">
         <div className="list-items grid grid-cols-3 gap-y-5 w-full">
           {data.map((item) => (

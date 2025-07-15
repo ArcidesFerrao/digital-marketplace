@@ -430,3 +430,8 @@ input[type="submit"]:hover,
   box-shadow: none;
   border: none;
 }
+
+.filter-products {
+  border-top: var(--placeholder) solid 1px;
+  border-bottom: var(--placeholder) solid 1px;
+}
