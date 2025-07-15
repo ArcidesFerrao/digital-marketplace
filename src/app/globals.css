@@ -432,6 +432,6 @@ input[type="submit"]:hover,
 }
 
 .filter-products {
-  border-top: var(--placeholder) solid 1px;
-  border-bottom: var(--placeholder) solid 1px;
+  border-top: var(--shadow) solid 1px;
+  border-bottom: var(--shadow) solid 1px;
 }

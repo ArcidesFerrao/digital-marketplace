@@ -6,21 +6,18 @@ import { getApprovedProducts } from "@/lib/getProducts";
 import Link from "next/link";
 
 type Props = {
-  searchParams?: Record<string, string | string[]>;
+  searchParams?: {
+    category?: string;
+
+    sort?: "asc" | "desc";
+  };
 };
 
-export default async function ProductsPage({ searchParams = {} }: Props) {
-  const categoryRaw = searchParams["category"];
-  const sortRaw = searchParams["sort"];
+export default async function ProductsPage({ searchParams }: Props) {
+  const resolvedSearchParams = Object.assign({}, searchParams);
 
-  const category = Array.isArray(categoryRaw) ? categoryRaw[0] : categoryRaw;
-
-  const sort =
-    sortRaw === "asc"
-      ? "asc"
-      : typeof sortRaw === "string" && sortRaw.toLowerCase() === "asc"
-      ? "asc"
-      : "desc";
+  const category = resolvedSearchParams.category;
+  const sort = resolvedSearchParams.sort || "desc";
 
   const data = await getApprovedProducts({ category, sort });
 
