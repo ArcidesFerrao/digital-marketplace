@@ -11,7 +11,11 @@ export default async function ProductPage({
   const { id } = await params;
 
   if (!id) {
-    return <main></main>;
+    return (
+      <main className="flex items-center justify-center">
+        <p>Produto nao encontrado</p>
+      </main>
+    );
   }
 
   const product = await db.product.findUnique({
@@ -30,7 +34,7 @@ export default async function ProductPage({
       </main>
     );
   return (
-    <main className="flex gap-10 p-5">
+    <main className="flex flex-col gap-10 p-5">
       <section className="flex h-fit gap-10">
         <Image
           className="rounded-lg h-fit"
@@ -40,29 +44,37 @@ export default async function ProductPage({
           height={300}
         />
         <section className="flex flex-col justify-between">
-          <h2 className="text-2xl font-medium">{product.title}</h2>
-          <h2 className="text-4xl font-bold">MZN {product.price}.00</h2>
-          <p>{product.description}</p>
-          <p>Category: {product.category}</p>
-          <p>By: {product.seller.name}</p>
-          <form action={createTransaction} className="flex flex-col">
-            <input
-              type="hidden"
-              name="sellerId"
-              id="sellerId"
-              value={product.seller.id}
-            />
+          <div className="header-product flex flex-col  gap-4">
+            <h2 className="text-2xl font-medium">{product.title}</h2>
+            <h2 className="text-4xl font-bold">MZN {product.price}.00</h2>
+          </div>
+          <div className="footer-product flex flex-col  gap-4">
+            <p>Category: {product.category}</p>
+            <p>Added at: {product.createdAt.toLocaleDateString()}</p>
+            <p>By: {product.seller.name}</p>
+            <form action={createTransaction} className="flex flex-col">
+              <input
+                type="hidden"
+                name="sellerId"
+                id="sellerId"
+                value={product.seller.id}
+              />
 
-            <input
-              type="hidden"
-              name="amount"
-              id="amount"
-              value={product.price}
-            />
-            <input type="hidden" name="productId" id="productId" value={id} />
-            <input type="submit" value="Buy" />
-          </form>
+              <input
+                type="hidden"
+                name="amount"
+                id="amount"
+                value={product.price}
+              />
+              <input type="hidden" name="productId" id="productId" value={id} />
+              <input type="submit" value="Buy..." />
+            </form>
+          </div>
         </section>
+      </section>
+      <section className="max-w-xl">
+        <h2 className="text-2xl font-medium">Product Description</h2>
+        <p>{product.description}</p>
       </section>
     </main>
   );
