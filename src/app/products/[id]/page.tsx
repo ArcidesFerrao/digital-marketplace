@@ -1,6 +1,7 @@
 import { createTransaction } from "@/app/actions/createTransaction";
 import db from "@/db/db";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 export default async function ProductPage({
@@ -48,10 +49,15 @@ export default async function ProductPage({
             <h2 className="text-2xl font-medium">{product.title}</h2>
             <h2 className="text-4xl font-bold">MZN {product.price}.00</h2>
           </div>
-          <div className="footer-product flex flex-col  gap-4">
+          <div className="footer-product flex flex-col  gap-2">
             <p>Category: {product.category}</p>
             <p>Added at: {product.createdAt.toLocaleDateString()}</p>
-            <p>By: {product.seller.name}</p>
+            <p>
+              By:{" "}
+              <Link href={`/seller/${product.sellerId}`}>
+                {product.seller.name}
+              </Link>
+            </p>
             <form action={createTransaction} className="flex flex-col">
               <input
                 type="hidden"
@@ -67,7 +73,7 @@ export default async function ProductPage({
                 value={product.price}
               />
               <input type="hidden" name="productId" id="productId" value={id} />
-              <input type="submit" value="Buy..." />
+              <input type="submit" value="Buy" />
             </form>
           </div>
         </section>
