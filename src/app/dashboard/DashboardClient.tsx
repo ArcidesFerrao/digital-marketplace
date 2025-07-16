@@ -107,7 +107,6 @@ const DashboardOverview = ({ seller }: { seller: Seller }) => {
                 <th>Title</th>
                 <th>Price</th>
                 <th>Sales</th>
-                <th>Action</th>
               </tr>
             </thead>
             <tbody>
@@ -117,7 +116,6 @@ const DashboardOverview = ({ seller }: { seller: Seller }) => {
                     <td>{item.title}</td>
                     <td>MZN {item.price}.00</td>
                     <td>{item.Transaction?.length || 0}</td>
-                    <td>Edit</td>
                   </tr>
                 ))}
             </tbody>
@@ -208,6 +206,7 @@ const ProductsList = ({
                 <th>Title</th>
                 <th>Price</th>
                 <th>Sales</th>
+                <th>Action</th>
               </tr>
             </thead>
             <tbody>
@@ -217,7 +216,10 @@ const ProductsList = ({
                     <Link href={`/transactions/${item.id}`}>{item.title}</Link>
                   </td>
                   <td>MZN {item.price}.00</td>
-                  <td></td>
+                  <td>{item.Transaction?.length}</td>
+                  <td>
+                    <Link href={`/products/${item.id}/edit`}>Edit</Link>
+                  </td>
                 </tr>
               ))}
             </tbody>
