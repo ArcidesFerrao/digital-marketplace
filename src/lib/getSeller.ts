@@ -4,7 +4,6 @@ import db from "@/db/db";
 
 export async function getSeller(email: string) {
     if (!email) return null;
-    console.log(email);
     return await db.user.findUnique({
         where: {
             email,
