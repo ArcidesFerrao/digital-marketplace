@@ -1,43 +1,17 @@
-"use client";
-
-import { ProductForm } from "@/components/ProductForm";
-import db from "@/db/db";
-import { signIn, useSession } from "next-auth/react";
-import Image from "next/image";
 import React from "react";
+import EditProductPage from "./EditProduct";
+import db from "@/db/db";
 
-export default function EditProductPage({
-  params: { id },
-}: {
-  params: { id: string };
-}) {
-  const { data: session, status } = useSession();
+export default async function EditPage({ params }: { params: { id: string } }) {
   const product = await db.product.findUnique({
-    where: { id },
+    where: {
+      id: params.id,
+    },
   });
 
-  if (status === "loading") {
-    return (
-      <main className="flex justify-center items-center p-10">
-        <Image
-          src="/assets/infinity.svg"
-          alt="Loading..."
-          width={50}
-          height={50}
-        />
-      </main>
-    );
+  if (!product) {
+    return <div>Product not found!</div>;
   }
-  return (
-    <main className="flex flex-col justify-center items-center gap-6 p-10">
-      {session?.user ? (
-        <ProductForm product={product} />
-      ) : (
-        <div className="flex flex-col gap-10">
-          <h4>You must be signed in to add a product.</h4>
-          <button onClick={() => signIn()}>Sign In with Google</button>
-        </div>
-      )}
-    </main>
-  );
+
+  return <EditProductPage product={product} />;
 }

@@ -7,9 +7,25 @@ import { useForm } from "@conform-to/react";
 import { parseWithZod } from "@conform-to/zod";
 import Image from "next/image";
 import React, { useActionState, useEffect, useState } from "react";
+
 import toast from "react-hot-toast";
 
-export const ProductForm = () => {
+type ProductFormProps = {
+  product?: {
+    id: string;
+    title: string;
+    price: number;
+    category: string;
+    description: string;
+    fileUrl: string;
+    imageUrl: string;
+    isApproved: boolean;
+    sellerId: string;
+    createdAt: Date;
+  };
+};
+
+export const ProductForm = ({ product }: ProductFormProps) => {
   const [state, action, pending] = useActionState(submitProduct, undefined);
 
   const [form, fields] = useForm({
@@ -21,7 +37,7 @@ export const ProductForm = () => {
     shouldRevalidate: "onInput",
   });
 
-  const [imageUrl, setImageUrl] = useState<string>("");
+  const [imageUrl, setImageUrl] = useState<string>(product?.imageUrl || "");
   const [price, setPrice] = useState<number>(0);
 
   useEffect(() => {
