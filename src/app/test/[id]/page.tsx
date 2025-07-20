@@ -1,4 +1,6 @@
 // app/test/[id]/page.tsx
-export default function TestPage({ params }: { params: { id: string } }) {
-  return <div>ID: {params.id}</div>;
+export default async function TestPage({ params }: { params: { id: string } }) {
+  const paramsId = await params;
+  // console.log(id);
+  return <main>ID: {paramsId.id}</main>;
 }

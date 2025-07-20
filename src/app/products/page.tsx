@@ -10,8 +10,9 @@ type Props = {
 };
 
 export default async function ProductsPage({ searchParams = {} }: Props) {
-  const categoryRaw = searchParams["category"];
-  const sortRaw = searchParams["sort"];
+  const params = await searchParams;
+  const categoryRaw = params["category"];
+  const sortRaw = params["sort"];
 
   const category = Array.isArray(categoryRaw) ? categoryRaw[0] : categoryRaw;
 
