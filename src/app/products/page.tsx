@@ -3,10 +3,12 @@ import { ListCard, ProductCard } from "../../components/List";
 import { getApprovedProducts } from "@/lib/getProducts";
 import Link from "next/link";
 
+type SearchParams = Promise<Record<string, string | string[] | undefined>>;
+
 export default async function ProductsPage({
   searchParams,
 }: {
-  searchParams: Record<string, string | string[] | undefined>;
+  searchParams: SearchParams;
 }) {
   const params = await searchParams;
   const categoryRaw = params["category"];

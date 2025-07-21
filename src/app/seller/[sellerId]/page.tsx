@@ -2,19 +2,22 @@ import { ListCard } from "@/components/List";
 import db from "@/db/db";
 import React from "react";
 
+type ParamsPromise = Promise<{ sellerId: string }>;
+
 export default async function SellerPage({
   params,
 }: {
-  params: { sellerId: string };
+  params: ParamsPromise;
 }) {
+  const { sellerId } = await params;
   const products = await db.product.findMany({
     where: {
-      sellerId: params.sellerId,
+      sellerId: sellerId,
     },
   });
   const sellerData = await db.user.findUnique({
     where: {
-      id: params.sellerId,
+      id: sellerId,
     },
   });
   if (products.length === 0) {
