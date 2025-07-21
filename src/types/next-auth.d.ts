@@ -15,4 +15,10 @@ declare module "next-auth" {
     email?: string | null;
     image?: string | null;
   }
+
+  interface PageProps {
+    params: {
+      id: string;
+    }
+  }
 }
