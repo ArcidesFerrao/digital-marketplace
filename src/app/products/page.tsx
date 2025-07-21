@@ -1,7 +1,7 @@
 import React from "react";
 import { ListCard, ProductCard } from "../../components/List";
 import { getApprovedProducts } from "@/lib/getProducts";
-import Link from "next/link";
+import FilterLink from "@/components/FilterLink";
 
 type SearchParams = Promise<Record<string, string | string[] | undefined>>;
 
@@ -74,11 +74,31 @@ export default async function ProductsPage({
       <h2 className="text-4xl font-medium">Explore our products...</h2>
       <section className="filter-products flex gap-4 p-2">
         <p>Filter:</p>
-        <Link href="/products?sort=desc">Newest</Link>
-        <Link href="/products?sort=asc">Oldest</Link>
-        <Link href="/products?category=ebook">eBook</Link>
-        <Link href="/products?category=template">Template</Link>
-        <Link href="/products">Clear</Link>
+        <FilterLink
+          href="/products?sort=desc"
+          label="Newest"
+          active={sort === "desc"}
+        />
+        <FilterLink
+          href="/products?sort=asc"
+          label="Oldest"
+          active={sort === "asc"}
+        />
+        <FilterLink
+          href="/products?category=ebook"
+          label="eBook"
+          active={category === "ebook"}
+        />
+        <FilterLink
+          href="/products?category=template"
+          label="Template"
+          active={category === "template"}
+        />
+        <FilterLink
+          href="/products"
+          label="Clear"
+          active={!category && !sort}
+        />
       </section>
       <section className="flex flex-col gap-y-5">
         <div className="list-items grid grid-cols-3 gap-y-5 w-full">
