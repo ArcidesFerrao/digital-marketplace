@@ -161,7 +161,7 @@ export const ListCard = ({
         alt={title}
         width={200}
         height={200}
-        // priority={false}
+        priority={false}
       />
       <div className="flex flex-col gap-2">
         <Link href={`/products/${id}`}>

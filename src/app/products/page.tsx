@@ -1,15 +1,13 @@
-export const dynamic = "force-dynamic";
-export const revalidate = 0;
 import React from "react";
 import { ListCard, ProductCard } from "../../components/List";
 import { getApprovedProducts } from "@/lib/getProducts";
 import Link from "next/link";
 
-type Props = {
-  searchParams?: Record<string, string | string[]>;
-};
-
-export default async function ProductsPage({ searchParams = {} }: Props) {
+export default async function ProductsPage({
+  searchParams,
+}: {
+  searchParams: Record<string, string | string[] | undefined>;
+}) {
   const params = await searchParams;
   const categoryRaw = params["category"];
   const sortRaw = params["sort"];
