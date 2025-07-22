@@ -12,10 +12,11 @@ export default async function ProductsPage({
 }) {
   const params = await searchParams;
   const categoryRaw = params["category"];
+  const queryRaw = params["query"];
   const sortRaw = params["sort"];
 
   const category = Array.isArray(categoryRaw) ? categoryRaw[0] : categoryRaw;
-
+  const query = Array.isArray(queryRaw) ? queryRaw[0] : queryRaw ?? "";
   const sort =
     sortRaw === "asc"
       ? "asc"
@@ -23,7 +24,7 @@ export default async function ProductsPage({
       ? "asc"
       : "desc";
 
-  const data = await getApprovedProducts({ category, sort });
+  const data = await getApprovedProducts({ category, sort, query });
 
   const products = [
     {
@@ -72,33 +73,55 @@ export default async function ProductsPage({
   return (
     <main className="flex flex-col gap-5 p-5">
       <h2 className="text-4xl font-medium">Explore our products...</h2>
-      <section className="filter-products flex gap-4 p-2">
-        <p>Filter:</p>
-        <FilterLink
-          href="/products?sort=desc"
-          label="Newest"
-          active={sort === "desc"}
-        />
-        <FilterLink
-          href="/products?sort=asc"
-          label="Oldest"
-          active={sort === "asc"}
-        />
-        <FilterLink
-          href="/products?category=ebook"
-          label="eBook"
-          active={category === "ebook"}
-        />
-        <FilterLink
-          href="/products?category=template"
-          label="Template"
-          active={category === "template"}
-        />
-        <FilterLink
-          href="/products"
-          label="Clear"
-          active={!category && !sort}
-        />
+      <section className="filter-search flex items-center gap-4 p-2">
+        <div className="filter-products flex gap-4">
+          <p>Filter:</p>
+          <FilterLink
+            href="/products?sort=desc"
+            label="Newest"
+            active={sort === "desc"}
+          />
+          <FilterLink
+            href="/products?sort=asc"
+            label="Oldest"
+            active={sort === "asc"}
+          />
+          <FilterLink
+            href="/products?category=ebook"
+            label="eBook"
+            active={category === "ebook"}
+          />
+          <FilterLink
+            href="/products?category=template"
+            label="Template"
+            active={category === "template"}
+          />
+          <FilterLink
+            href="/products"
+            label="Clear"
+            active={!category && !sort}
+          />
+        </div>
+        <form
+          action="/products"
+          method="GET"
+          className="search-products relative flex items-center w-full"
+        >
+          <input
+            type="text"
+            name="query"
+            defaultValue={query}
+            className="w-full font-light text-sm"
+            placeholder="Search..."
+          />
+          <button
+            type="submit"
+            aria-label="Search"
+            className=" absolute right-3 flex items-center"
+          >
+            <span className="line-md--search"></span>
+          </button>
+        </form>
       </section>
       <section className="flex flex-col gap-y-5">
         <div className="list-items grid grid-cols-3 gap-y-5 w-full">

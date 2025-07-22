@@ -431,7 +431,18 @@ input[type="submit"]:hover,
   border: none;
 }
 
-.filter-products {
+.filter-search {
   border-top: var(--placeholder) solid 1px;
   border-bottom: var(--placeholder) solid 1px;
+  button:hover {
+    box-shadow: none;
+  }
+  button {
+    padding: 0;
+    border: none;
+    background: none;
+  }
+  input {
+    padding: 0.2rem 0.4rem;
+  }
 }
