@@ -1,12 +1,15 @@
 import { AdminHeader } from "@/components/AdminHeader";
+import SalesChart from "@/components/SalesChart";
 import { getApprovedProducts, getProducts } from "@/lib/getProducts";
-import { getTotalAmount } from "@/lib/getTransactions";
+import { getOrderedTransactions, getTotalAmount } from "@/lib/getTransactions";
 import React from "react";
 
 export default async function AdminPage() {
   const products = await getApprovedProducts();
   const requests = await getProducts();
   const totalAmount = await getTotalAmount();
+  const salesData = await getOrderedTransactions();
+
   let amount = 0;
   if (!totalAmount) {
     amount = 0;
@@ -30,6 +33,10 @@ export default async function AdminPage() {
           <h3>Requests</h3>
           <h1>{requests.length}</h1>
         </div>
+      </section>
+      <section className="sales-chart flex flex-col">
+        <h2>Sales Over Time</h2>
+        <SalesChart data={salesData} />
       </section>
     </main>
   );

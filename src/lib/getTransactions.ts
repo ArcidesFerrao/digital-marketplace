@@ -12,6 +12,19 @@ export async function getTransactions() {
     })
   )
 }
+export async function getOrderedTransactions() {
+  return (
+    await db.transaction.findMany({
+        select: {
+          createdAt: true,
+          amount: true,
+        },
+        orderBy: {
+          createdAt: "asc"
+        }
+    })
+  )
+}
 
 export async function getTotalAmount() {
   return (
