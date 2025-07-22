@@ -124,19 +124,26 @@ export default async function ProductsPage({
         </form>
       </section>
       <section className="flex flex-col gap-y-5">
-        <div className="list-items grid grid-cols-3 gap-y-5 w-full">
-          {data.map((item) => (
-            <ListCard
-              key={item.id}
-              title={item.title}
-              category={item.category}
-              imageUrl={item.imageUrl}
-              price={item.price}
-              id={item.id}
-              createdAt={item.createdAt}
-            />
-          ))}
-        </div>
+        {data.length === 0 ? (
+          <div className="text-center text-muted-foreground py-10">
+            <p>No products found!</p>
+            <p>Try adjusting your filters or search query.</p>
+          </div>
+        ) : (
+          <div className="list-items grid grid-cols-3 gap-y-5 w-full">
+            {data.map((item) => (
+              <ListCard
+                key={item.id}
+                title={item.title}
+                category={item.category}
+                imageUrl={item.imageUrl}
+                price={item.price}
+                id={item.id}
+                createdAt={item.createdAt}
+              />
+            ))}
+          </div>
+        )}
         <div className="list-items grid grid-cols-3 gap-y-5 w-full">
           {products.map((item) => (
             <ProductCard

@@ -101,25 +101,33 @@ const DashboardOverview = ({ seller }: { seller: Seller }) => {
           {seller?.name || " "}&apos;s Products
         </h3>
         <div className="dashboard-table overflow-x-auto rounded-lg">
-          <table className=" w-full">
-            <thead>
-              <tr>
-                <th>Title</th>
-                <th>Price</th>
-                <th>Sales</th>
-              </tr>
-            </thead>
-            <tbody>
-              {seller.products &&
-                seller.products.map((item) => (
+          {seller.products.length === 0 ? (
+            <div>
+              <p>You haven&apos;t added any products yet!</p>
+              <Link href="/dashboard/products/new" className="text-primary">
+                Add your first product
+              </Link>
+            </div>
+          ) : (
+            <table className=" w-full">
+              <thead>
+                <tr>
+                  <th>Title</th>
+                  <th>Price</th>
+                  <th>Sales</th>
+                </tr>
+              </thead>
+              <tbody>
+                {seller.products.map((item) => (
                   <tr key={item.id}>
                     <td>{item.title}</td>
                     <td>MZN {item.price}.00</td>
                     <td>{item.Transaction?.length || 0}</td>
                   </tr>
                 ))}
-            </tbody>
-          </table>
+              </tbody>
+            </table>
+          )}
         </div>
       </div>
     </section>
@@ -150,28 +158,34 @@ const SalesHistory = ({
       </div>
       <div className="sales-details flex flex-col gap-4">
         <div className="dashboard-table overflow-x-auto rounded-lg">
-          <table className=" w-full">
-            <thead>
-              <tr>
-                <th>Title</th>
-                <th>Price Paid</th>
-                <th>Date</th>
-              </tr>
-            </thead>
-            <tbody>
-              {sales.map((item) => (
-                <tr key={item.id}>
-                  <td>
-                    <Link href={`/transactions/${item.id}`}>
-                      {item.product.title}
-                    </Link>
-                  </td>
-                  <td>MZN {item.product.price}.00</td>
-                  <td>{item.createdAt.toLocaleDateString()}</td>
+          {sales.length === 0 ? (
+            <div>
+              <p>You haven&apos;t sold any products yet!</p>
+            </div>
+          ) : (
+            <table className=" w-full">
+              <thead>
+                <tr>
+                  <th>Title</th>
+                  <th>Price Paid</th>
+                  <th>Date</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {sales.map((item) => (
+                  <tr key={item.id}>
+                    <td>
+                      <Link href={`/transactions/${item.id}`}>
+                        {item.product.title}
+                      </Link>
+                    </td>
+                    <td>MZN {item.product.price}.00</td>
+                    <td>{item.createdAt.toLocaleDateString()}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          )}
         </div>
       </div>
     </section>
@@ -200,30 +214,41 @@ const ProductsList = ({
       </div>
       <div className="sales-details flex flex-col gap-4">
         <div className="dashboard-table overflow-x-auto rounded-lg">
-          <table className=" w-full">
-            <thead>
-              <tr>
-                <th>Title</th>
-                <th>Price</th>
-                <th>Sales</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              {seller.products.map((item) => (
-                <tr key={item.id}>
-                  <td>
-                    <Link href={`/transactions/${item.id}`}>{item.title}</Link>
-                  </td>
-                  <td>MZN {item.price}.00</td>
-                  <td>{item.Transaction?.length}</td>
-                  <td>
-                    <Link href={`/products/${item.id}/edit`}>Edit</Link>
-                  </td>
+          {seller.products.length === 0 ? (
+            <div>
+              <p>You haven&apos;t added any products yet!</p>
+              <Link href="/dashboard/products/new" className="text-primary">
+                Add your first product
+              </Link>
+            </div>
+          ) : (
+            <table className=" w-full">
+              <thead>
+                <tr>
+                  <th>Title</th>
+                  <th>Price</th>
+                  <th>Sales</th>
+                  <th>Action</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {seller.products.map((item) => (
+                  <tr key={item.id}>
+                    <td>
+                      <Link href={`/transactions/${item.id}`}>
+                        {item.title}
+                      </Link>
+                    </td>
+                    <td>MZN {item.price}.00</td>
+                    <td>{item.Transaction?.length}</td>
+                    <td>
+                      <Link href={`/products/${item.id}/edit`}>Edit</Link>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          )}
         </div>
       </div>
     </section>
