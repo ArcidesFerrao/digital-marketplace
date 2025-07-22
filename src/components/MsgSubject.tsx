@@ -25,8 +25,8 @@ export default function MsgSubject({
   return (
     <td
       onClick={handleClick}
-      className={`cursor-pointer transition ${pending ? "opacity-60" : ""} ${
-        isRead ? "font-light" : "font-bold"
+      className={`cursor-pointer transition ${pending ? "opacity-20" : ""} ${
+        isRead ? "font-extralight opacity-60" : "font-bold"
       }`}
     >
       {subject}

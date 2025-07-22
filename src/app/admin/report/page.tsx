@@ -9,7 +9,7 @@ export default async function ReportPage() {
   if (!data) return <main>Transactions not found</main>;
 
   return (
-    <main className="admin-section p-20 flex flex-col gap-10">
+    <main className="admin-section p-10 flex flex-col gap-10">
       <AdminHeader />
 
       <section className="flex flex-col gap-5">
@@ -22,25 +22,37 @@ export default async function ReportPage() {
               <th>Seller</th>
               <th>Amount</th>
               <th>Buyer</th>
+              <th>Date</th>
             </tr>
           </thead>
           <tbody>
             {data.length > 0 ? (
               data.map((item) => (
-                <tr key={item.id}>
+                <tr className="text-sm" key={item.id}>
                   <td>
                     <Link href={`/transactions/${item.id}`}>
-                      {item.product.title}
+                      {item.product.title.length > 20
+                        ? item.product.title.slice(0, 20) + "..."
+                        : item.product.title}
                     </Link>
                   </td>
-                  <td>{item.seller.name}</td>
+                  <td>
+                    {item.seller.name.length > 15
+                      ? item.seller.name.slice(0, 15) + "..."
+                      : item.seller.name}
+                  </td>
                   <td>MZN {item.amount}.00</td>
-                  <td>{item.buyer.name}</td>
+                  <td>
+                    {item.buyer.name.length > 15
+                      ? item.buyer.name.slice(0, 15) + "..."
+                      : item.buyer.name}
+                  </td>
+                  <td>{item.createdAt.toLocaleDateString()}</td>
                 </tr>
               ))
             ) : (
               <tr className="text-center">
-                <td>nenhuma transacao encontrada!</td>
+                <td colSpan={4}>nenhuma transacao encontrada!</td>
               </tr>
             )}
           </tbody>

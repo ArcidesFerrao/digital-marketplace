@@ -1,6 +1,7 @@
 import { AdminHeader } from "@/components/AdminHeader";
 import { ApproveForm, DeleteForm } from "@/components/ApproveForm";
 import { getProducts } from "@/lib/getProducts";
+import Link from "next/link";
 import React from "react";
 
 export default async function RequestsPage() {
@@ -29,10 +30,20 @@ export default async function RequestsPage() {
             {products.length > 0 ? (
               products.map((item) => (
                 <tr key={item.id}>
-                  <td>{item.title}</td>
+                  <td>
+                    <Link href={`/transactions/${item.id}`}>
+                      {item.title.length > 20
+                        ? item.title.slice(0, 20) + "..."
+                        : item.title}
+                    </Link>
+                  </td>
                   <td>{item.category}</td>
                   <td>MZN {item.price}.00</td>
-                  <td>{item.seller.name}</td>
+                  <td>
+                    {item.seller.name.length > 15
+                      ? item.seller.name.slice(0, 15) + "..."
+                      : item.seller.name}
+                  </td>
                   <td>
                     <div className="flex gap-2">
                       <ApproveForm productId={item.id} />
@@ -43,7 +54,7 @@ export default async function RequestsPage() {
               ))
             ) : (
               <tr className="text-center">
-                <td>nenhum produto encontrado!</td>
+                <td colSpan={5}>nenhum produto encontrado!</td>
               </tr>
             )}
           </tbody>

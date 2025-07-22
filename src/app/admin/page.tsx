@@ -18,16 +18,16 @@ export default async function AdminPage() {
       <AdminHeader />
       <section className="overview flex  justify-around">
         <div className="dash-card">
-          <h3>Total de Vendas</h3>
+          <h3>Total Sales</h3>
           <h1>MZN {totalAmount._sum.amount}.00</h1>
           <p>Comission (10%): {`${amount === 0 ? 0 : amount * 0.1}.00`} </p>
         </div>
         <div className="dash-card">
-          <h3>Produtos</h3>
+          <h3>Products</h3>
           <h1>{products.length}</h1>
         </div>
         <div className="dash-card">
-          <h3>Pedidos</h3>
+          <h3>Requests</h3>
           <h1>{requests.length}</h1>
         </div>
       </section>

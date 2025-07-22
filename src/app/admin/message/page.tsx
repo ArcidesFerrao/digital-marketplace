@@ -27,7 +27,7 @@ export default async function MessagesPage() {
           </thead>
           <tbody>
             {messages.map((msg) => (
-              <tr key={msg.id}>
+              <tr className="text-sm" key={msg.id}>
                 <td> {msg.name + " " + msg.lastName}</td>
                 <MsgSubject
                   id={msg.id}
