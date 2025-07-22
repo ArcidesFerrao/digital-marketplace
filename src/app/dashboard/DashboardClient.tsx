@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { Seller, Transaction } from "@/types";
 import Link from "next/link";
 import { signOut } from "next-auth/react";
+import { DeleteForm } from "@/components/ApproveForm";
 
 interface DashboardClientProps {
   seller: Seller;
@@ -241,8 +242,12 @@ const ProductsList = ({
                     </td>
                     <td>MZN {item.price}.00</td>
                     <td>{item.Transaction?.length}</td>
-                    <td>
-                      <Link href={`/products/${item.id}/edit`}>Edit</Link>
+                    <td className="flex items-center">
+                      <DeleteForm productId={item.id} />
+
+                      <Link href={`/products/${item.id}/edit`}>
+                        <span className="line-md--edit-filled"></span>
+                      </Link>
                     </td>
                   </tr>
                 ))}
