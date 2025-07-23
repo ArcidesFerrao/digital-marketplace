@@ -17,7 +17,7 @@ export default async function AdminPage() {
     amount = totalAmount._sum.amount || 0;
   }
   return (
-    <main className="admin-section p-20 flex flex-col gap-10">
+    <main className="admin-section p-10 flex flex-col gap-10">
       <AdminHeader />
       <section className="overview flex  justify-around">
         <div className="dash-card">
