@@ -13,7 +13,7 @@ export const Hero = () => (
       </p>
     </div>
     <div className="hero-buttons flex gap-5 justify-center py-5">
-      <Link href="/products" className="btn">
+      <Link href="/products" className="btn btn-browse">
         <span>Browse Products</span>
       </Link>
       <Link href="/products/new" className="btn btn-outline">

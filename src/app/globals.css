@@ -24,6 +24,11 @@
   }
 } */
 
+@media (min-width: 833px) {
+  .dash-menu {
+    display: none;
+  }
+}
 @media (max-width: 832px) {
   body {
     padding: 0 10px;
@@ -129,6 +134,13 @@
   .about-button-links {
     justify-content: space-evenly;
     gap: 0;
+  }
+  .hero-buttons {
+    padding: 0;
+
+    .btn-browse {
+      display: none;
+    }
   }
 }
 

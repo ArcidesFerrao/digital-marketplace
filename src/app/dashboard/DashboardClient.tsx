@@ -94,6 +94,13 @@ export default function DashboardClient({
               <span className="iconamoon--settings-light"></span>
               Account Settings
             </button>
+            <button
+              onClick={() => signOut()}
+              className="signout flex  items-center gap-5 px-5"
+            >
+              <span className="stashe--signout"></span>
+              <div>Sign Out</div>
+            </button>
           </div>
         ) : (
           <button
