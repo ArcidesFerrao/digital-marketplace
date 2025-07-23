@@ -18,6 +18,7 @@ export default function DashboardClient({
   totalAmount,
 }: DashboardClientProps) {
   const [activeSection, setActiveSection] = useState("dashboard");
+  const [menu, setMenu] = useState(false);
 
   return (
     <main className="seller-page flex gap-10 py-5">
@@ -56,6 +57,52 @@ export default function DashboardClient({
           <div>Sign Out</div>
           <span className="stashes--signout"></span>
         </button>
+      </section>
+      <section className="dash-menu">
+        {menu ? (
+          <div className="dashboard-menu flex flex-col">
+            <div className="menu-close flex items-center justify-between">
+              <button
+                className="flex items-center gap-5 px-5"
+                onClick={() => setActiveSection("dashboard")}
+              >
+                <span className="iconamoon--home"></span>
+                Dashboard
+              </button>
+              <button
+                className="flex items-center"
+                onClick={() => setMenu((prev) => !prev)}
+              >
+                <span className="iconamoon--close-thin "></span>
+              </button>
+            </div>
+            <button
+              className="flex items-center gap-5 px-5"
+              onClick={() => setActiveSection("products")}
+            >
+              <span className="iconamoon--box-light"></span>
+              Products
+            </button>
+            <button
+              className="flex items-center gap-5 px-5"
+              onClick={() => setActiveSection("sales")}
+            >
+              <span className="iconamoon--clock-light"></span>
+              Sales History
+            </button>
+            <button className="flex items-center gap-5 px-5">
+              <span className="iconamoon--settings-light"></span>
+              Account Settings
+            </button>
+          </div>
+        ) : (
+          <button
+            className="dash-menu-toggle flex items-center"
+            onClick={() => setMenu((prev) => !prev)}
+          >
+            <span className="ion--menu-outline"></span>
+          </button>
+        )}
       </section>
       {activeSection === "dashboard" && <DashboardOverview seller={seller} />}
       {activeSection === "products" && (

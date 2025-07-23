@@ -28,8 +28,24 @@
   body {
     padding: 0 10px;
   }
+  .menu-close {
+    background-color: var(--accent);
+    button {
+      background: none;
+    }
+  }
   .main-dash {
     padding: 1rem;
+  }
+  .dash-menu {
+    position: absolute;
+    top: 10rem;
+    right: 2rem;
+  }
+  .dashboard-menu {
+    button {
+      border: none;
+    }
   }
   .dash-nav,
   .description-section {
@@ -58,6 +74,11 @@
   th,
   td {
     padding: 0.6rem !important;
+  }
+  .dash-menu {
+    position: absolute;
+    top: 14rem;
+    right: 2rem;
   }
   .header-msg,
   .content-msg {
@@ -539,4 +560,9 @@ input[type="submit"]:hover,
   input {
     padding: 0.2rem 0.4rem;
   }
+}
+
+.dash-menu-toggle {
+  padding: 0.4rem;
+  border: none;
 }
