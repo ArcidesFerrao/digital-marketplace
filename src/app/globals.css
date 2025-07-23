@@ -159,6 +159,9 @@
       display: none;
     }
   }
+  .admin-section {
+    padding: 1rem;
+  }
 }
 
 html {
