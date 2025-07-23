@@ -75,7 +75,7 @@ export default function AboutPage() {
               or discover the next digital innovation, we invite you to join
               Innovante&apos;s Digital Marketplace today!
             </p>
-            <div className="flex gap-5">
+            <div className="about-button-links flex gap-5">
               <Link href="/product/new">Start Selling</Link>
               <Link href="/products">Explore our products</Link>
             </div>
@@ -83,7 +83,7 @@ export default function AboutPage() {
         </div>
         <div className="flex flex-col gap-5">
           <h2 className="text-2xl font-bold">Our Story</h2>
-          <div className="flex gap-10 ">
+          <div className="story-section flex gap-10 ">
             <Image
               src="/assets/profile.png"
               alt="arcides-ferrao"
@@ -108,7 +108,7 @@ export default function AboutPage() {
         </div>
         <div className="flex flex-col items-center gap-5">
           <h2 className="text-2xl font-bold">Our mission</h2>
-          <div className="flex gap-10">
+          <div className="mission-section flex gap-10">
             <div className="about-mission flex flex-col items-center gap-5">
               <h3 className="text-xl font-bold">For Creators</h3>
               <div className="text-center">

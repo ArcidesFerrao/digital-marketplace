@@ -6,7 +6,7 @@ export default async function MessagesPage() {
   const messages = await getMessages();
 
   return (
-    <main className="admin-section p-20 flex flex-col gap-10">
+    <main className="admin-section p-10 flex flex-col gap-10">
       <AdminHeader />
       <section className="title flex gap-2 items-center">
         <h2 className="text-2xl">Messages</h2>

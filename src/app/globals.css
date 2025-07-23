@@ -24,6 +24,93 @@
   }
 } */
 
+@media (max-width: 832px) {
+  body {
+    padding: 0 10px;
+  }
+  .main-dash {
+    padding: 1rem;
+  }
+  .dash-nav,
+  .description-section {
+    display: none;
+  }
+  footer {
+    text-align: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1rem;
+    .footer-links {
+      flex-direction: row;
+      justify-content: center;
+    }
+  }
+  .list-items {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .sales-info,
+  .filter-search {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 550px) {
+  th,
+  td {
+    padding: 0.6rem !important;
+  }
+  .header-msg,
+  .content-msg {
+    padding: 1rem 10px;
+  }
+  .overview,
+  fieldset {
+    row-gap: 1rem;
+  }
+  .overview,
+  .name-price-form {
+    flex-direction: column;
+    align-items: start;
+  }
+  .mission-section,
+  .story-section,
+  .about-reason {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .services-list {
+    flex-direction: column;
+    .service-item {
+      width: 100%;
+    }
+  }
+  .product-info-section {
+    flex-direction: column;
+    img {
+      width: 100%;
+    }
+  }
+  .list-items {
+    grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+    justify-items: center;
+  }
+  .full-name,
+  .steps-section {
+    flex-direction: column;
+  }
+  .product-card {
+    max-width: 300px !important;
+    img {
+      width: 100%;
+    }
+  }
+  .about-button-links {
+    justify-content: space-evenly;
+    gap: 0;
+  }
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -273,7 +360,7 @@ input[type="submit"]:hover,
   /* background-color: var(--hover); */
   width: fit-content;
   min-height: 50vh;
-  min-width: 340px;
+  min-width: 400px;
   transition: all ease-in 500ms;
 }
 /* 

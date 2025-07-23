@@ -36,7 +36,7 @@ export default async function ProductPage({
     );
   return (
     <main className="flex flex-col gap-10 p-5">
-      <section className="flex h-fit gap-10">
+      <section className="product-info-section flex h-fit gap-10">
         <Image
           className="rounded-lg h-fit"
           src={product.imageUrl}

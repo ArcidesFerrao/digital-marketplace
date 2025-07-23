@@ -20,7 +20,7 @@ export const Hero = () => (
         <span>Start Selling...</span>
       </Link>
     </div>
-    <div className="my-10 flex items-center w-full gap-4">
+    <div className="steps-section my-10 flex items-center w-full gap-4">
       <div className="step-card flex flex-col justify-between items-center">
         <span className="mdi--laptop-account "></span>
         <div>
