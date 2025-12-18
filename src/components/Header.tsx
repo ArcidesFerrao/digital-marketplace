@@ -9,7 +9,12 @@ export const Header = () => {
   return (
     <nav className="navigator w-full flex space-x-6 justify-between items-center p-4 ">
       <Link href="/#hero">
-        <Image src="/assets/logo.png" width={40} height={38} alt="Home" />
+        <Image
+          src="/assets/evolure-box-w.png"
+          width={40}
+          height={38}
+          alt="Home"
+        />
       </Link>
       {status === "loading" ? (
         <Image
