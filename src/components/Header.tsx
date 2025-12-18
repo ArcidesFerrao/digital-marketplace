@@ -11,8 +11,8 @@ export const Header = () => {
       <Link href="/#hero">
         <Image
           src="/assets/evolure-box-w.png"
-          width={40}
-          height={38}
+          width={32}
+          height={32}
           alt="Home"
         />
       </Link>

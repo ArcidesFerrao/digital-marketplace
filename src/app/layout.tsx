@@ -15,7 +15,7 @@ const suseSans = SUSE({
 });
 
 export const metadata: Metadata = {
-  title: "evolure's Digital Marketplace",
+  title: "Evolure's Digital Marketplace",
   description: "Find local digital products at the best prices",
   icons: {
     icon: [{ url: "/favicon.png" }],
