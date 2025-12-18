@@ -33,14 +33,14 @@ export const Description = () => {
       <div className="call-action flex flex-col  gap-5">
         <div className="flex gap-3">
           <Image
-            alt="Innovante's MarketPlace"
-            src="/assets/logo-accent.png"
+            alt="Evolure's MarketPlace"
+            src="/assets/evolure-box-w.png"
             width={50}
-            height={5}
+            height={50}
           />
           <div>
             <h2 className="text-xl font-bold">
-              Innovante&apos;s Digital Marketplace
+              Evolure&apos;s Digital Marketplace
             </h2>
             <p className="text-sm">
               Your hub for digital tools and freelance success

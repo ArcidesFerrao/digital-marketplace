@@ -10,11 +10,11 @@ export default function TermsPage() {
           <p></p>
         </div>
         <p>
-          Welcome to Innovante`s Digital Marketplace. These Terms and Conditions
+          Welcome to Evolure`s Digital Marketplace. These Terms and Conditions
           (“Terms”) govern your use of our website and services provided by
-          Innovante (“we”, “us”, or “our”). By accessing or using our
-          marketplace, you agree to be bound by these Terms. Please read them
-          carefully before using our platform.
+          Evolure (“we”, “us”, or “our”). By accessing or using our marketplace,
+          you agree to be bound by these Terms. Please read them carefully
+          before using our platform.
         </p>
       </section>
       <section className="terms-content flex flex-col  gap-5 p-5">
@@ -22,8 +22,8 @@ export default function TermsPage() {
           <h2 className="text-xl font-bold">1. Eligibility</h2>
           <p>
             You must be at least 18 years old to use this site or have the
-            consent of a legal guardian. By using Innovante`s Digital
-            Marketplace, you confirm that you meet this requirement.
+            consent of a legal guardian. By using Evolure`s Digital Marketplace,
+            you confirm that you meet this requirement.
           </p>
         </div>
         <div className="flex flex-col">
@@ -97,16 +97,16 @@ export default function TermsPage() {
           <h2 className="text-xl font-bold">6. Intellectual Property</h2>
           <ul>
             <li>
-              All content on the platform is either owned by Innovante or
-              licensed by third-party creators.
+              All content on the platform is either owned by Evolure or licensed
+              by third-party creators.
             </li>
             <li>
               You may not reproduce, modify, or distribute any content without
               the appropriate rights or licenses.
             </li>
             <li>
-              Sellers grant Innovante a non-exclusive license to host and
-              display their digital products.
+              Sellers grant Evolure a non-exclusive license to host and display
+              their digital products.
             </li>
           </ul>
         </div>
@@ -122,8 +122,8 @@ export default function TermsPage() {
               support@innovante.co.mz.
             </li>
             <li>
-              Innovante may review cases and, at its discretion, decide whether
-              to issue a refund or take corrective action.
+              Evolure may review cases and, at its discretion, decide whether to
+              issue a refund or take corrective action.
             </li>
           </ul>
         </div>
@@ -159,8 +159,8 @@ export default function TermsPage() {
               products sold by users.
             </li>
             <li>
-              Innovante shall not be liable for any damages resulting from use
-              or inability to use the platform.
+              Evolure shall not be liable for any damages resulting from use or
+              inability to use the platform.
             </li>
           </ul>
         </div>
@@ -174,7 +174,7 @@ export default function TermsPage() {
         <div className="flex flex-col">
           <h2 className="text-xl font-bold">12. Contact Us</h2>
           <p>For any questions regarding these Terms, please contact us at:</p>
-          <p>📧 legal@innovante.co.mz</p>
+          <p>📧 legal@evolure.co.mz</p>
         </div>
       </section>
     </main>

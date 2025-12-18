@@ -8,7 +8,7 @@ export const Hero = () => (
       </h2>
       <h2 className="text-5xl font-bold ">Sell in Minutes</h2>
       <p className="my-6 hero-text font-light ">
-        Join Innovante Marketplace — a place for creators, developers and
+        Join Evolure&apos;s Marketplace — a place for creators, developers and
         designers to sell their work with ease
       </p>
     </div>

@@ -11,7 +11,7 @@ export default function AboutPage() {
       </section>
       <section className="flex flex-col items-center gap-10">
         <p className="max-w-md text-center text-xl">
-          Innovante is a digital marketplace dedicated to providing top-tier
+          Evolure is a digital marketplace dedicated to providing top-tier
           digital tools and support to African freelancers and creators
         </p>
         <div className="services-list flex gap-5">
