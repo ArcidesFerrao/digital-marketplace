@@ -38,6 +38,7 @@ export const ProductForm = ({ product }: ProductFormProps) => {
   });
 
   const [imageUrl, setImageUrl] = useState<string>(product?.imageUrl || "");
+  const [fileUrl, setFileUrl] = useState<string>(product?.fileUrl || "");
   const [price, setPrice] = useState<number>(0);
 
   useEffect(() => {
@@ -175,12 +176,29 @@ export const ProductForm = ({ product }: ProductFormProps) => {
         {fields.description.errors && <p>{fields.description.errors}</p>}
 
         <div className="flex flex-col">
-          <input
+          <input type="hidden" name="fileUrl" id="fileUrl" value={fileUrl} />
+          {fileUrl !== "" ? (
+            <div className="flex justify-center">
+              <span>File Url: {fileUrl.slice(0, 25)}...</span>
+            </div>
+          ) : (
+            <UploadDropzone
+              className="max-h-60 uploadthing"
+              endpoint="pdfUploader"
+              onClientUploadComplete={(res) => {
+                setFileUrl(res[0].ufsUrl);
+              }}
+              onUploadError={() => {
+                alert("something went wrong");
+              }}
+            />
+          )}
+          {/* <input
             type="url"
             name="fileUrl"
             id="fileUrl"
             placeholder="File/Folder Url"
-          />
+          /> */}
           <p>Product will be approved after the Url is checked.</p>
           {fields.fileUrl.errors && <p>{fields.fileUrl.errors}</p>}
         </div>
