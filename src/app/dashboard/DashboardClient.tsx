@@ -45,7 +45,10 @@ export default function DashboardClient({
             <span className="iconamoon--clock-light"></span>
             Sales History
           </button>
-          <button className="flex items-center gap-5 px-5">
+          <button
+            onClick={() => setActiveSection("settings")}
+            className="flex items-center gap-5 px-5"
+          >
             <span className="iconamoon--settings-light"></span>
             Account Settings
           </button>
@@ -121,9 +124,7 @@ export default function DashboardClient({
       {activeSection === "sales" && (
         <SalesHistory sales={sales} totalAmount={totalAmount} />
       )}
-      {activeSection === "settings" && (
-        <SalesHistory sales={sales} totalAmount={totalAmount} />
-      )}
+      {activeSection === "settings" && <Settings />}
     </main>
   );
 }
@@ -318,4 +319,8 @@ const ProductsList = ({
       </div>
     </section>
   );
+};
+
+const Settings = () => {
+  return <p>under construction</p>;
 };

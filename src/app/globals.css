@@ -568,6 +568,12 @@ input[type="submit"]:hover,
   border: solid 1px var(--shadow);
 }
 
+.dash-card {
+  background-color: var(--shadow);
+  border-radius: 1rem;
+  border: solid 1px var(--shadow);
+}
+
 .dash-nav button {
   background: none;
   border: none;
