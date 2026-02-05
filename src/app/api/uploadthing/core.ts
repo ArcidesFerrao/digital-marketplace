@@ -27,6 +27,18 @@ export const ourFileRouter = {
       console.log("pdf url", file.ufsUrl);
       return { url: file.ufsUrl };
     }),
+
+  zipUploader: f({
+    blob: {
+      maxFileSize: "16MB",
+      maxFileCount: 1,
+    }
+  })
+    .onUploadComplete(async ({ file }) => {
+      console.log("zip url", file.ufsUrl);
+      return { url: file.ufsUrl };
+    }),
+
 } satisfies FileRouter;
 
 export type OurFileRouter = typeof ourFileRouter;

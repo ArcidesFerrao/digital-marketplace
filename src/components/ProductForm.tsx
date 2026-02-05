@@ -37,6 +37,7 @@ export const ProductForm = ({ product }: ProductFormProps) => {
     shouldRevalidate: "onInput",
   });
 
+  const [fileType, setFileType] = useState<string>("pdf");
   const [imageUrl, setImageUrl] = useState<string>(product?.imageUrl || "");
   const [fileUrl, setFileUrl] = useState<string>(product?.fileUrl || "");
   const [price, setPrice] = useState<number>(0);
@@ -182,23 +183,56 @@ export const ProductForm = ({ product }: ProductFormProps) => {
               <span>File Url: {fileUrl.slice(0, 25)}...</span>
             </div>
           ) : (
-            <UploadDropzone
-              className="max-h-60 uploadthing"
-              endpoint="pdfUploader"
-              onClientUploadComplete={(res) => {
-                setFileUrl(res[0].ufsUrl);
-              }}
-              onUploadError={() => {
-                alert("something went wrong");
-              }}
-            />
+            <fieldset className="flex flex-col gap-4">
+              <legend>File Upload</legend>
+              <div className="flex gap-4 ">
+                <label className="radio">
+                  <input
+                    type="radio"
+                    name="fileType"
+                    value="pdf"
+                    onChange={() => setFileType("pdf")}
+                    defaultChecked
+                    // className="sr-only"
+                  />
+                  <span className="fileType-span">Pdf</span>
+                </label>
+                <label className="radio">
+                  <input
+                    type="radio"
+                    name="fileType"
+                    value="zip"
+                    onChange={() => setFileType("zip")}
+                    // className="sr-only"
+                  />
+                  <span className="fileType-span">Zip</span>
+                </label>
+              </div>
+              {fileType === "pdf" ? (
+                <UploadDropzone
+                  className="max-h-60 uploadthing"
+                  endpoint="pdfUploader"
+                  onClientUploadComplete={(res) => {
+                    setFileUrl(res[0].ufsUrl);
+                  }}
+                  onUploadError={() => {
+                    alert("something went wrong");
+                  }}
+                />
+              ) : (
+                <UploadDropzone
+                  className="max-h-60 uploadthing"
+                  endpoint="zipUploader"
+                  onClientUploadComplete={(res) => {
+                    setFileUrl(res[0].ufsUrl);
+                  }}
+                  onUploadError={() => {
+                    alert("something went wrong");
+                  }}
+                />
+              )}
+            </fieldset>
           )}
-          {/* <input
-            type="url"
-            name="fileUrl"
-            id="fileUrl"
-            placeholder="File/Folder Url"
-          /> */}
           <p>Product will be approved after the Url is checked.</p>
           {fields.fileUrl.errors && <p>{fields.fileUrl.errors}</p>}
         </div>

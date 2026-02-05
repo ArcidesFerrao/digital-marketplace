@@ -293,6 +293,7 @@ input:focus {
 input[type="radio"] {
   display: none;
 }
+.radio .fileType-span,
 .radio .category-span {
   background-color: var(--accent);
   width: fit-content;
@@ -303,6 +304,7 @@ input[type="radio"] {
   transition: all 300ms ease-in;
 }
 
+.radio .fileType-span:hover,
 .radio .category-span:hover {
   background-color: var(--hover);
 }
