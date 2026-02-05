@@ -90,7 +90,10 @@ export default function DashboardClient({
               <span className="iconamoon--clock-light"></span>
               Sales History
             </button>
-            <button className="flex items-center gap-5 px-5">
+            <button
+              onClick={() => setActiveSection("settings")}
+              className="flex items-center gap-5 px-5"
+            >
               <span className="iconamoon--settings-light"></span>
               Account Settings
             </button>
@@ -118,6 +121,9 @@ export default function DashboardClient({
       {activeSection === "sales" && (
         <SalesHistory sales={sales} totalAmount={totalAmount} />
       )}
+      {activeSection === "settings" && (
+        <SalesHistory sales={sales} totalAmount={totalAmount} />
+      )}
     </main>
   );
 }
@@ -127,7 +133,7 @@ const DashboardOverview = ({ seller }: { seller: Seller }) => {
 
   const revenue = seller.transactionsSold.reduce(
     (sum, tx) => sum + tx.amount,
-    0
+    0,
   );
 
   const activeListings = seller.products.filter((p) => p.isApproved).length;
@@ -256,7 +262,7 @@ const ProductsList = ({
 }) => {
   return (
     <section className="main-dash w-full flex flex-col gap-5 px-5">
-      <h1 className="text-4xl font-medium">Sales History</h1>
+      <h1 className="text-4xl font-medium">Products</h1>
       <div className="sales-info flex gap-5">
         <div className="dash-card flex flex-col gap-2 p-5">
           <h3>Active Products</h3>
@@ -296,7 +302,7 @@ const ProductsList = ({
                     </td>
                     <td>MZN {item.price}.00</td>
                     <td>{item.Transaction?.length}</td>
-                    <td className="flex items-center">
+                    <td className="flex gap-2 items-center">
                       <DeleteForm productId={item.id} />
 
                       <Link href={`/products/${item.id}/edit`}>

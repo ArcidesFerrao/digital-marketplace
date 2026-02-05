@@ -8,6 +8,7 @@
   --hover: #1c1c1c;
   --accent: #303b2b4b;
   --placeholder: #f4f5fa;
+  --cancel: #995959;
 }
 
 /* @theme inline {
@@ -324,6 +325,22 @@ a:hover {
 
 p {
   font-weight: 300;
+}
+
+.cancel-btn {
+  background-color: var(--cancel);
+  /* border-radius: 0; */
+  /* box-shadow: 6px 8px 0 var(--shadow); */
+  border-color: var(--text);
+  padding: 0.4rem 1rem;
+  border-radius: 0.2rem;
+  transition: all 300ms ease-in;
+}
+.cancel-btn:hover {
+  background-color: var(--cancel);
+  border-radius: 0;
+  box-shadow: 6px 8px 0 var(--shadow);
+  border-color: var(--text);
 }
 
 button:hover,

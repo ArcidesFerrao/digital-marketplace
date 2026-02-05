@@ -6,6 +6,7 @@ import { UploadDropzone } from "@/utils/uploadthing";
 import { useForm } from "@conform-to/react";
 import { parseWithZod } from "@conform-to/zod";
 import Image from "next/image";
+import Link from "next/link";
 import React, { useActionState, useEffect, useState } from "react";
 
 import toast from "react-hot-toast";
@@ -40,7 +41,7 @@ export const ProductForm = ({ product }: ProductFormProps) => {
   const [fileType, setFileType] = useState<string>("pdf");
   const [imageUrl, setImageUrl] = useState<string>(product?.imageUrl || "");
   const [fileUrl, setFileUrl] = useState<string>(product?.fileUrl || "");
-  const [price, setPrice] = useState<number>(0);
+  const [price, setPrice] = useState<number>(product?.price || 0);
 
   useEffect(() => {
     if (state?.status === "success" && state.message) {
@@ -69,8 +70,11 @@ export const ProductForm = ({ product }: ProductFormProps) => {
       onSubmit={form.onSubmit}
       action={action}
     >
-      <section>
+      <section className="flex  justify-between items-center">
         <h2 className="text-4xl font-medium">Submit Product</h2>
+        <Link href="/products" className="cancel-btn">
+          Cancel
+        </Link>
       </section>
       <section className="flex flex-col gap-5">
         <div className="flex flex-col gap-2">
@@ -82,6 +86,7 @@ export const ProductForm = ({ product }: ProductFormProps) => {
                 id="title"
                 className="min-w-72"
                 placeholder="Product Name"
+                defaultValue={product?.title || ""}
               />
               <div className="price-input flex gap-2 items-center">
                 <label htmlFor="number" className="text-lg">
@@ -108,6 +113,7 @@ export const ProductForm = ({ product }: ProductFormProps) => {
               type="radio"
               name="category"
               value="ebook"
+              checked={product?.category === "ebook"}
               // defaultChecked
               // className="sr-only"
             />
@@ -118,6 +124,7 @@ export const ProductForm = ({ product }: ProductFormProps) => {
               type="radio"
               name="category"
               value="template"
+              checked={product?.category === "template"}
               // className="sr-only"
             />
             <span className="category-span">Template</span>
@@ -127,6 +134,7 @@ export const ProductForm = ({ product }: ProductFormProps) => {
               type="radio"
               name="category"
               value="pack"
+              checked={product?.category === "pack"}
               // className="sr-only"
             />
             <span className="category-span">Music Pack</span>
@@ -136,6 +144,7 @@ export const ProductForm = ({ product }: ProductFormProps) => {
               type="radio"
               name="category"
               value="stock"
+              checked={product?.category === "stock"}
               // className="sr-only"
             />
             <span className="category-span">Stock Photography</span>
