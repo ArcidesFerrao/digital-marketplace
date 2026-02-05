@@ -240,10 +240,10 @@ export const ProductForm = ({ product }: ProductFormProps) => {
                   }}
                 />
               )}
+              {fields.fileUrl.errors && <p>{fields.fileUrl.errors}</p>}
             </fieldset>
           )}
           <p>Product will be approved after the Url is checked.</p>
-          {fields.fileUrl.errors && <p>{fields.fileUrl.errors}</p>}
         </div>
       </section>
       <input
