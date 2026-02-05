@@ -297,9 +297,7 @@ const ProductsList = ({
                 {seller.products.map((item) => (
                   <tr key={item.id}>
                     <td>
-                      <Link href={`/transactions/${item.id}`}>
-                        {item.title}
-                      </Link>
+                      <Link href={`/products/${item.id}`}>{item.title}</Link>
                     </td>
                     <td>MZN {item.price}.00</td>
                     <td>{item.Transaction?.length}</td>
